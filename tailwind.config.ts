@@ -9,12 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        gold: '#C9A96E',
-        'gold-light': '#D9BF8E',
-        'brand-black': '#0A0A0A',
-        beige: '#F5F0E8',
-        charcoal: '#262626',
-        plum: '#4A0E4E',
+        gold: '#2D6A2D',
+        'gold-light': '#3D8C3D',
+        'brand-black': '#0A1A0A',
+        beige: '#E8F0E8',
+        charcoal: '#1A2E1A',
+        plum: '#1A4A1A',
+        'forest-green': '#228B22',
+        'forest-dark': '#1A5C1A',
+        sage: '#E8F0E8',
       },
       fontFamily: {
         playfair: ['Playfair Display', 'Georgia', 'serif'],

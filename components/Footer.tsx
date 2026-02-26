@@ -16,14 +16,15 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-gold/40">
                 <Image
-                  src="/images/logo.jpg"
-                  alt="MRM Fashion World"
+                  src="/images/rose.jpeg"
+                  alt="David Flower Project"
                   fill
                   className="object-cover"
+                  sizes="40px"
                 />
               </div>
               <span className="font-playfair text-white text-lg">
-                MRM <span className="text-gold">Fashion World</span>
+                David <span className="text-gold">Flower Project</span>
               </span>
             </div>
             <p className="font-inter text-sm text-white/50 leading-relaxed max-w-xs">
@@ -33,13 +34,13 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-playfair text-white text-sm tracking-widest uppercase mb-6">Atelier</h4>
+            <h4 className="font-playfair text-white text-sm tracking-widest uppercase mb-6">Discover</h4>
             <ul className="space-y-3">
               {[
                 { href: '/about', label: 'Our Story' },
-                { href: '/collections', label: 'Collections' },
-                { href: '/process', label: 'The Process' },
-                { href: '/contact', label: 'Book Consultation' },
+                { href: '/collections', label: 'Flower Catalog' },
+                { href: '/process', label: 'Our Process' },
+                { href: '/contact', label: 'Order Now' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -81,10 +82,10 @@ export default function Footer() {
 
         <div className="border-t border-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-inter text-xs text-white/30 tracking-wide">
-            © {currentYear} MRM Fashion World. All rights reserved.
+            © {currentYear} David Flower Project. All rights reserved.
           </p>
           <p className="font-inter text-xs text-white/30 tracking-wide">
-            Designed Exclusively For You
+            Nature's Finest Blooms, Curated For You
           </p>
         </div>
       </div>

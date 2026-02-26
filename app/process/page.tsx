@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { getSiteConfig } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'The Process',
-  description: 'Discover the MRM Fashion World bespoke journey — from consultation to your final, perfect garment.',
+  title: 'Our Process | David Flower Project',
+  description: 'Discover how David Flower Project sources and delivers nature\'s finest blooms fresh to your door.',
 };
 
 export default function ProcessPage() {
@@ -18,8 +18,8 @@ export default function ProcessPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/process1.png"
-            alt="The Bespoke Process"
+            src="/images/lily-of-the-valley.jpeg"
+            alt="From Garden to Door"
             fill
             className="object-cover"
             priority
@@ -28,7 +28,7 @@ export default function ProcessPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-3">Bespoke</p>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-3">How It Works</p>
           <h1 className="font-playfair text-4xl md:text-5xl text-white">{process.headline}</h1>
         </div>
       </section>
@@ -70,8 +70,8 @@ export default function ProcessPage() {
       {/* Image Break */}
       <section className="relative h-[50vh] overflow-hidden">
         <Image
-          src="/images/process2.png"
-          alt="Fabric"
+          src="/images/cherry-blossom.jpeg"
+          alt="Beautiful Cherry Blossom"
           fill
           className="object-cover"
           sizes="100vw"
@@ -79,7 +79,7 @@ export default function ProcessPage() {
         <div className="absolute inset-0 bg-brand-black/60 flex items-center justify-center">
           <div className="text-center">
             <p className="font-playfair italic text-2xl text-white">
-              Every detail. Every thread. Every you.
+              Every bloom. Every detail. Every smile.
             </p>
           </div>
         </div>
@@ -88,14 +88,14 @@ export default function ProcessPage() {
       {/* CTA */}
       <section className="section-padding bg-brand-black text-center">
         <div className="max-w-xl mx-auto">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Ready to Begin?</p>
-          <h2 className="font-playfair text-3xl text-white mb-6">Start Your Bespoke Journey</h2>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Ready to Order?</p>
+          <h2 className="font-playfair text-3xl text-white mb-6">Browse Our Flower Catalog</h2>
           <div className="gold-divider" />
           <p className="font-inter text-sm text-white/60 mb-10">
-            Your story begins with a single conversation. Book your consultation today.
+            Explore 50+ varieties — seasonal and tropical blooms delivered fresh daily.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Book Consultation
+          <Link href="/collections" className="btn-primary">
+            Shop Flowers
           </Link>
         </div>
       </section>

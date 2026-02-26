@@ -7,7 +7,7 @@
 
 const WA_NUMBER = '2348034295030';
 const WA_MESSAGE = encodeURIComponent(
-  'Hello MRM Fashion World! 👋 I\'d like to enquire about your bespoke fashion services.'
+  'Hello David Flower Project! 🌸 I\'d like to place a flower order.'
 );
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
 

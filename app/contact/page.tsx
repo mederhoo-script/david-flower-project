@@ -4,8 +4,8 @@ import BookingForm from '@/components/BookingForm';
 import { getSiteConfig } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'Contact & Booking',
-  description: 'Book a bespoke consultation with MRM Fashion World. Available by appointment only.',
+  title: 'Contact & Order',
+  description: 'Order fresh flowers from David Flower Project. Same-day delivery available.',
 };
 
 export default function ContactPage() {
@@ -18,8 +18,8 @@ export default function ContactPage() {
       <section className="relative h-[50vh] min-h-[350px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero002.jpeg"
-            alt="Book a Consultation"
+            src="/images/lily.jpeg"
+            alt="Order Flowers"
             fill
             className="object-cover object-top"
             priority
@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-3">Consultation</p>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-3">Order</p>
           <h1 className="font-playfair text-4xl md:text-5xl text-white">{contact.headline}</h1>
         </div>
       </section>
@@ -38,11 +38,11 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Form */}
           <div>
-            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Book an Appointment</p>
-            <h2 className="font-playfair text-2xl text-brand-black mb-2">Let&apos;s Begin Your Story</h2>
+            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Place Your Order</p>
+            <h2 className="font-playfair text-2xl text-brand-black mb-2">Order Your Blooms Today</h2>
             <div className="w-8 h-px bg-gold mb-8" />
             <p className="font-inter text-sm text-charcoal/70 mb-8 leading-relaxed">
-              {contact.subtitle} Fill in the form below and we will connect via WhatsApp to schedule your private consultation.
+              {contact.subtitle} Fill in the form below and we will connect via WhatsApp to confirm your order and arrange delivery.
             </p>
             <BookingForm whatsapp={site.whatsapp} whatsappMessage={contact.whatsappMessage} />
           </div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
               <div className="w-16 h-px bg-gold/30" />
               <div className="bg-beige p-6 border-l-2 border-gold">
                 <p className="font-playfair italic text-sm text-charcoal/80 leading-relaxed">
-                  &ldquo;We do not rush the art of creation. Each piece is given the time it deserves to become extraordinary.&rdquo;
+                  &ldquo;Where flowers bloom, so does hope. We bring the garden to you, one beautiful bloom at a time.&rdquo;
                 </p>
               </div>
             </div>
