@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/collections', label: 'Collections' },
-  { href: '/process', label: 'Process' },
+  { href: '/collections', label: 'Flowers' },
+  { href: '/process', label: 'Our Process' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -35,15 +35,16 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <div className="relative w-10 h-10 rounded-full overflow-hidden border border-gold/40">
             <Image
-              src="/images/logo.jpg"
-              alt="MRM Fashion World"
+              src="/images/rose.jpeg"
+              alt="David Flower Project"
               fill
               className="object-cover"
+              sizes="40px"
               priority
             />
           </div>
           <span className="font-playfair text-white text-lg tracking-wide">
-            MRM <span className="text-gold">Fashion World</span>
+            David <span className="text-gold">Flower Project</span>
           </span>
         </Link>
 
@@ -66,7 +67,7 @@ export default function Navbar() {
               href="/contact"
               className="btn-primary text-xs"
             >
-              Book Consultation
+              Order Now
             </Link>
           </li>
         </ul>
@@ -108,7 +109,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="btn-primary text-xs block text-center"
               >
-                Book Consultation
+                Order Now
               </Link>
             </li>
           </ul>

@@ -1,63 +1,63 @@
 {
-  "brandName": "MRM Fashion World",
-  "tagline": "Designed Exclusively For You",
+  "brandName": "David Flower Project",
+  "tagline": "Nature's Finest Blooms, Curated For You",
   "whatsapp": "2348034295030",
-  "intro": "We create bespoke garments tailored to your identity, merging Nigerian heritage with contemporary couture.",
+  "intro": "We curate and deliver nature's most beautiful flowers, from timeless classics to rare exotic blooms, bringing the elegance of the garden to your door.",
   "about": {
-    "headline": "The Art of Bespoke Tailoring",
-    "story": "At MRM Fashion World, every stitch tells a story. Founded on the belief that true elegance is personal, we craft garments that celebrate your individuality. Our atelier combines generations of tailoring mastery with a bold, contemporary vision — producing pieces that are not merely worn, but experienced.",
-    "philosophy": "We do not follow trends. We set them — one silhouette at a time.",
+    "headline": "The Art of Floral Curation",
+    "story": "At David Flower Project, every bloom tells a story. Founded on a deep love for nature's artistry, we source the finest flowers from trusted growers around the world. Our collection spans the seasons \u2014 from the delicate anemones of early spring to the dramatic orchids of the tropics \u2014 each flower selected for its beauty, fragrance, and lasting quality.",
+    "philosophy": "We do not simply sell flowers. We offer moments of beauty \u2014 one bloom at a time.",
     "values": [
       {
-        "title": "Craftsmanship",
-        "description": "Every seam, every pleat, every button — executed with meticulous precision by hand."
+        "title": "Quality",
+        "description": "Every flower is hand-selected for freshness, color, and form \u2014 sourced only from the finest growers."
       },
       {
-        "title": "Individuality",
-        "description": "No two clients are the same. No two garments should be either."
+        "title": "Variety",
+        "description": "From seasonal classics to rare exotic blooms, our catalog spans four seasons and dozens of varieties."
       },
       {
-        "title": "Heritage",
-        "description": "Rooted in Nigerian textile tradition, elevated for the global stage."
+        "title": "Nature",
+        "description": "We celebrate the natural beauty of flowers, offering arrangements that honor each bloom's unique character."
       }
     ]
   },
   "process": {
-    "headline": "The Bespoke Journey",
-    "subtitle": "From vision to reality — five steps toward your perfect garment.",
+    "headline": "From Garden to Your Door",
+    "subtitle": "Five simple steps to bring nature's finest blooms to you.",
     "steps": [
       {
         "number": "01",
-        "title": "Consultation",
-        "description": "We begin with an intimate conversation about your vision, occasion, and personal style. This is where your story becomes the blueprint."
+        "title": "Browse Our Catalog",
+        "description": "Explore our curated collection of 50+ flower varieties spanning four seasons \u2014 from winter delicates to tropical exotics."
       },
       {
         "number": "02",
-        "title": "Design",
-        "description": "Our designers sketch your silhouette, translating your desires into refined drawings that capture the essence of your garment."
+        "title": "Select Your Blooms",
+        "description": "Choose your flowers by stem or bunch. Each flower listing includes detailed descriptions and care instructions."
       },
       {
         "number": "03",
-        "title": "Fabric Selection",
-        "description": "We source the finest fabrics — from luxurious Italian wool to hand-woven Nigerian Aso-oke — chosen specifically for your piece."
+        "title": "Place Your Order",
+        "description": "Contact us via WhatsApp or our contact form. Our team will confirm availability and arrange delivery."
       },
       {
         "number": "04",
-        "title": "Fittings",
-        "description": "Through multiple fitting sessions, we sculpt the garment to your exact measurements, ensuring a silhouette that is uniquely yours."
+        "title": "Fresh Preparation",
+        "description": "Your flowers are freshly cut and carefully conditioned \u2014 stems trimmed, leaves stripped, and hydrated for maximum vase life."
       },
       {
         "number": "05",
-        "title": "The Final Piece",
-        "description": "Your garment is completed with hand-finished details, pressed to perfection, and delivered ready to be worn as a statement of your identity."
+        "title": "Delivered with Care",
+        "description": "Your blooms arrive beautifully wrapped, ready to brighten any space or occasion with nature's finest beauty."
       }
     ]
   },
   "contact": {
-    "headline": "Begin Your Journey",
-    "subtitle": "Consultations are available by appointment only.",
-    "whatsappMessage": "Hello, I would like to book a consultation with MRM Fashion World.",
-    "email": "hello@mrmfashionworld.com",
+    "headline": "Order Your Blooms",
+    "subtitle": "Same-day delivery available. Orders placed by noon.",
+    "whatsappMessage": "Hello, I would like to place a flower order with David Flower Project.",
+    "email": "hello@davidflowerproject.com",
     "location": "Ibadan, Nigeria"
   }
 }

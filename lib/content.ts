@@ -7,20 +7,17 @@ export type SiteConfig = typeof siteData;
 export type Collection = (typeof collectionsData)[0];
 export type Testimonial = (typeof testimonialsData)[0];
 
-/** One design entry — discount fields are optional */
+/** One flower entry in the catalog */
 export interface Design {
   id: string;
   title: string;
   category: string;
   badge: string | null;
   image: string;
-  withFabricPrice: string;
-  sewingOnlyPrice: string;
+  stemPrice: string;
+  bunchPrice: string;
   description: string;
-  /** Original (pre-discount) price for the With Fabric option */
-  withFabricOriginalPrice?: string | null;
-  /** Original (pre-discount) price for the Sewing Only option */
-  sewingOnlyOriginalPrice?: string | null;
+  symbolism?: string;
 }
 
 export function getSiteConfig(): SiteConfig {

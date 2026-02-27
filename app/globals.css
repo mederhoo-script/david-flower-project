@@ -6,11 +6,12 @@
 
 @layer base {
   :root {
-    --gold: #C9A96E;
-    --gold-light: #D9BF8E;
-    --brand-black: #0A0A0A;
-    --beige: #F5F0E8;
-    --charcoal: #262626;
+    --gold: #2D6A2D;
+    --gold-light: #3D8C3D;
+    --brand-black: #0A1A0A;
+    --beige: #E8F0E8;
+    --charcoal: #1A2E1A;
+    --forest-green: #228B22;
   }
 
   html {
@@ -32,19 +33,19 @@
 
 @layer utilities {
   .text-gold {
-    color: #C9A96E;
+    color: #2D6A2D;
   }
   .bg-gold {
-    background-color: #C9A96E;
+    background-color: #2D6A2D;
   }
   .border-gold {
-    border-color: #C9A96E;
+    border-color: #2D6A2D;
   }
   .bg-beige {
-    background-color: #F5F0E8;
+    background-color: #E8F0E8;
   }
   .bg-brand-black {
-    background-color: #0A0A0A;
+    background-color: #0A1A0A;
   }
   
   .nav-link {
@@ -77,10 +78,10 @@
     @apply w-16 h-px bg-gold mx-auto my-6;
   }
   .btn-primary {
-    @apply inline-block px-8 py-3.5 bg-gold text-brand-black font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold-light hover:shadow-lg;
+    @apply inline-block px-8 py-3.5 bg-gold text-white font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold-light hover:shadow-lg;
   }
   .btn-outline {
-    @apply inline-block px-8 py-3.5 border border-gold text-gold font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold hover:text-brand-black;
+    @apply inline-block px-8 py-3.5 border border-gold text-gold font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gold hover:text-white;
   }
 }
 

@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { getSiteConfig } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'The story behind MRM Fashion World — craftsmanship, identity, and the art of bespoke tailoring.',
+  title: 'About Us | David Flower Project',
+  description: 'The story behind David Flower Project — curating nature\'s finest blooms with passion and expertise.',
 };
 
 export default function AboutPage() {
@@ -18,8 +18,8 @@ export default function AboutPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/man001.jpg"
-            alt="About MRM Fashion World"
+            src="/images/lavender.jpeg"
+            alt="About David Flower Project"
             fill
             className="object-cover"
             priority
@@ -37,7 +37,7 @@ export default function AboutPage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-6">The Atelier</p>
+            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-6">Our Garden</p>
             <p className="font-playfair text-xl md:text-2xl text-brand-black leading-relaxed mb-8">
               {about.story}
             </p>
@@ -49,8 +49,8 @@ export default function AboutPage() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src="/images/short%20gown/36e21ac024649be6c62b4dc394e8b81c.jpg"
-                alt="Craftsmanship"
+                src="/images/ranunculus.jpeg"
+                alt="Beautiful Flowers"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -84,14 +84,14 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="section-padding bg-brand-black text-center">
         <div className="max-w-xl mx-auto">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Work With Us</p>
-          <h2 className="font-playfair text-3xl text-white mb-6">Commission Your Piece</h2>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Order Today</p>
+          <h2 className="font-playfair text-3xl text-white mb-6">Browse Our Flower Catalog</h2>
           <div className="gold-divider" />
           <p className="font-inter text-sm text-white/60 mb-10 leading-relaxed">
-            Every garment begins with a conversation. Let us understand your vision.
+            From seasonal classics to exotic tropicals — nature's finest blooms, curated for you.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Book a Consultation
+          <Link href="/collections" className="btn-primary">
+            View Flowers
           </Link>
         </div>
       </section>

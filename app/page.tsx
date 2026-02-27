@@ -4,13 +4,13 @@ import Link from 'next/link';
 import HeroCarousel from '@/components/HeroCarousel';
 import MarqueeStrip from '@/components/MarqueeStrip';
 import TrendingCarousel from '@/components/TrendingCarousel';
-import DesignsSection from '@/components/DesignsSection';
+import FlowersSection from '@/components/FlowersSection';
 import TestimonialCard from '@/components/Testimonial';
 import { getSiteConfig, getCollections, getTestimonials, getDesigns } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'MRM Fashion World | Designed Exclusively For You',
-  description: 'Luxury bespoke fashion house. Book your consultation today.',
+  title: 'David Flower Project | Nature\'s Finest Blooms',
+  description: 'Curated flower catalog — fresh seasonal blooms and exotic tropicals delivered to your door.',
 };
 
 export default function HomePage() {
@@ -32,8 +32,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="font-inter text-xs tracking-[0.4em] uppercase text-gold mb-2">Trending</p>
-              <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Shop The Latest Trends</h2>
+              <p className="font-inter text-xs tracking-[0.4em] uppercase text-gold mb-2">Popular</p>
+              <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Most Loved Blooms</h2>
             </div>
             <Link
               href="/collections"
@@ -46,14 +46,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Designs — Product Section */}
+      {/* Flower Catalog Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Section header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
             <div>
-              <p className="font-inter text-xs tracking-[0.4em] uppercase text-gold mb-2">Our Designs</p>
-              <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Choose Your Service</h2>
+              <p className="font-inter text-xs tracking-[0.4em] uppercase text-gold mb-2">Our Flowers</p>
+              <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Browse Our Catalog</h2>
               <div className="gold-divider !mx-0 !my-4" />
             </div>
             <Link
@@ -67,28 +67,28 @@ export default function HomePage() {
           {/* Pricing legend */}
           <div className="flex flex-wrap gap-6 mb-8 p-4 bg-beige">
             <div className="flex items-center gap-2">
-              <span className="font-inter text-xs font-semibold text-brand-black">With Fabric:</span>
-              <span className="font-inter text-xs text-charcoal/70">Designer purchases & sews the fabric for you</span>
+              <span className="font-inter text-xs font-semibold text-brand-black">Per Stem:</span>
+              <span className="font-inter text-xs text-charcoal/70">Individual stems for custom arrangements</span>
             </div>
             <div className="w-px bg-gold/30 hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="font-inter text-xs font-semibold text-gold">Sewing Only:</span>
-              <span className="font-inter text-xs text-charcoal/70">You supply the fabric, we handle the craft</span>
+              <span className="font-inter text-xs font-semibold text-gold">Per Bunch:</span>
+              <span className="font-inter text-xs text-charcoal/70">~10 stems — best value for events & gifts</span>
             </div>
           </div>
 
-          {/* Design grid with Quick View — handled by client component */}
-          <DesignsSection designs={designs} />
+          {/* Flower grid with Quick View */}
+          <FlowersSection designs={designs} />
         </div>
       </section>
 
       {/* Intro Statement */}
       <section className="bg-beige py-20 px-6 text-center">
         <div className="max-w-2xl mx-auto">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-6">The Atelier</p>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-6">Our Philosophy</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-brand-black leading-tight mb-6">
-            This is not fashion.<br />
-            <em>This is identity.</em>
+            This is not just a flower.<br />
+            <em>This is a feeling.</em>
           </h2>
           <div className="gold-divider" />
           <p className="font-inter text-sm text-charcoal/70 leading-relaxed">
@@ -101,8 +101,8 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Lookbook</p>
-            <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Featured Collections</h2>
+            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Seasonal</p>
+            <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Shop by Season</h2>
             <div className="gold-divider" />
           </div>
 
@@ -128,7 +128,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <Link href="/collections" className="btn-outline">
-              View All Collections
+              View All Flowers
             </Link>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function HomePage() {
       {/* Process Teaser */}
       <section className="bg-brand-black section-padding text-center">
         <div className="max-w-3xl mx-auto">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">The Journey</p>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">How It Works</p>
           <h2 className="font-playfair text-3xl md:text-4xl text-white mb-6">
             {site.process.headline}
           </h2>
@@ -146,7 +146,7 @@ export default function HomePage() {
             {site.process.subtitle}
           </p>
           <Link href="/process" className="btn-primary">
-            Discover The Process
+            Learn More
           </Link>
         </div>
       </section>
@@ -155,8 +155,8 @@ export default function HomePage() {
       <section className="section-padding bg-beige">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Voices</p>
-            <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Client Stories</h2>
+            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Reviews</p>
+            <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Customer Stories</h2>
             <div className="gold-divider" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -171,8 +171,8 @@ export default function HomePage() {
       <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero002.jpeg"
-            alt="CTA Background"
+            src="/images/peony.jpeg"
+            alt="Order Beautiful Flowers"
             fill
             className="object-cover"
             sizes="100vw"
@@ -180,16 +180,16 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-brand-black/75" />
         </div>
         <div className="relative z-10 text-center max-w-2xl mx-auto">
-          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Begin Your Journey</p>
+          <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Order Today</p>
           <h2 className="font-playfair text-3xl md:text-5xl text-white mb-6">
-            Ready to Commission Your Piece?
+            Ready to Order Your Blooms?
           </h2>
           <div className="gold-divider" />
           <p className="font-inter text-sm text-white/70 mb-10">
-            Consultations are available by appointment only.
+            Same-day delivery available. Orders placed before noon.
           </p>
           <Link href="/contact" className="btn-primary">
-            Book Your Consultation
+            Order Now
           </Link>
         </div>
       </section>

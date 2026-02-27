@@ -25,38 +25,38 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    bg: '/images/hero001.jpg',
-    tag: 'New Arrivals',
-    title: 'Wear Your Story',
-    subtitle: 'Bespoke luxury fashion crafted for extraordinary moments',
+    bg: '/images/rose.jpeg',
+    tag: 'Fresh Arrivals',
+    title: 'Nature\'s Finest Blooms',
+    subtitle: 'Curated flowers from seasonal gardens and exotic tropics',
     ctaHref: '/collections',
   },
   {
-    bg: '/images/hero002.jpeg',
-    tag: 'Trending Now',
-    title: 'Heritage Elegance',
-    subtitle: 'Dramatic silhouettes that command every room you enter',
+    bg: '/images/peony.jpeg',
+    tag: 'Most Popular',
+    title: 'Garden Romance',
+    subtitle: 'Lush peonies, roses, and ranunculus — nature\'s most beloved blooms',
     ctaHref: '/collections',
   },
   {
-    bg: '/images/hero002a.jpeg',
-    tag: 'The Atelier',
-    title: 'Crafted With Intention',
-    subtitle: 'Every stitch tells a story of artistry and dedication',
-    ctaHref: '/about',
+    bg: '/images/dahlia.jpeg',
+    tag: 'Seasonal Picks',
+    title: 'Rich Autumn Hues',
+    subtitle: 'Bold dahlias and warm zinnias that paint the season in vivid color',
+    ctaHref: '/collections',
   },
   {
-    bg: '/images/hero003.png',
-    tag: 'Bridal 2026',
-    title: 'Your Perfect Day',
-    subtitle: 'Fully bespoke bridal creations tailored to your vision',
+    bg: '/images/orchid.jpeg',
+    tag: 'Exotic Tropicals',
+    title: 'Rare & Beautiful',
+    subtitle: 'Dramatic orchids, agapanthus, and tropical blooms for special occasions',
     ctaHref: '/contact',
   },
   {
-    bg: '/images/hero004.jpg',
-    tag: "Men's Collection",
-    title: 'Dressed to Inspire',
-    subtitle: 'Impeccably tailored menswear for the modern gentleman',
+    bg: '/images/tulip.jpeg',
+    tag: 'Spring Collection',
+    title: 'First Blooms of Spring',
+    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
     ctaHref: '/collections',
   },
 ];
@@ -241,7 +241,7 @@ export default function HeroCarousel() {
             style={{ animationDelay: '0.22s' }}
           >
             <Link href={slide.ctaHref} className="btn-primary">
-              Shop This Look
+              Shop This Flower
             </Link>
             <Link href="/about" className="font-inter text-[11px] tracking-[0.3em] uppercase border border-white/70 text-white px-8 py-3.5 hover:bg-white/10 transition-colors duration-300">
               Discover More

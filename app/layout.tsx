@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.brandName}`,
   },
   description: site.intro,
-  keywords: ['bespoke fashion', 'couture', 'luxury fashion', 'Nigerian designer', 'MRM Fashion World', 'tailoring'],
+  keywords: ['flower catalog', 'fresh flowers', 'flower delivery', 'tropical flowers', 'seasonal blooms', 'David Flower Project'],
   openGraph: {
     title: site.brandName,
     description: site.intro,
