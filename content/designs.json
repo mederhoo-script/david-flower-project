@@ -1,5 +1,221 @@
 [
   {
+    "id": "fiorella",
+    "title": "Fiorella",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/Fiorella.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Fiorella is a soft, romantic garden rose with delicate petals that unfold in gentle waves of blush and cream. Its lush, full blooms and fresh, subtle fragrance make it a favourite for weddings, anniversaries, and everyday luxury arrangements.",
+    "symbolism": "Fiorella represents tenderness and new beginnings — the perfect bloom to celebrate life's most cherished moments."
+  },
+
+  {
+    "id": "white-athena",
+    "title": "White Athena",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/White Athena.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "White Athena is a classic, pure-white rose prized by florists worldwide for its perfectly formed blooms and exceptional vase life. Its pristine petals and elegant high-centre form make it the go-to choice for bridal bouquets, sympathy arrangements, and sophisticated table centrepieces.",
+    "symbolism": "White roses symbolise purity, innocence, and eternal love — a timeless tribute to life's most meaningful occasions."
+  },
+
+  {
+    "id": "yellow-bassanti",
+    "title": "Yellow Bassanti",
+    "category": "Late Spring & Early Summer",
+    "badge": "Trending",
+    "image": "/images/david/Yellow Bassanti.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Yellow Bassanti is a radiant, sunshine-yellow rose with a warm, uplifting presence. Its bold colour and large, full blooms bring instant cheer to any space. An excellent choice for birthday bouquets, get-well wishes, and cheerful seasonal arrangements.",
+    "symbolism": "Yellow roses symbolise friendship, joy, and warm wishes — the perfect way to brighten someone's day."
+  },
+
+  {
+    "id": "cerise",
+    "title": "Cerise",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/cerise.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Cerise is a striking deep-pink to cherry-red rose with richly coloured, velvety petals. Its intense hue and strong stems make it a statement flower in any arrangement, from dramatic single-variety bouquets to mixed floral designs.",
+    "symbolism": "Cerise roses convey deep appreciation, admiration, and heartfelt gratitude."
+  },
+
+  {
+    "id": "ever-red",
+    "title": "Ever Red",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/ever_red.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Ever Red is a premium dark-red rose with velvety, deep-crimson petals and a long, strong stem. Its luxurious colour and classic form make it the ultimate romantic gesture — perfect for Valentine's Day, anniversaries, and any moment that calls for a declaration of love.",
+    "symbolism": "Deep red roses are the universal symbol of passionate love, desire, and devotion."
+  },
+
+  {
+    "id": "sparta",
+    "title": "Sparta",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/sparta.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Sparta is a bold, striking rose with rich, jewel-toned blooms and exceptional stem strength. Its vivid colour and long vase life make it a top pick for high-impact event floristry, statement table arrangements, and luxury gifting.",
+    "symbolism": "Sparta symbolises strength, passion, and boldness — a rose that commands attention and admiration."
+  },
+
+  {
+    "id": "fresh-arrangement-01",
+    "title": "Fresh Rose Arrangement",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.38 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A beautifully handcrafted rose arrangement featuring our freshest seasonal blooms. Designed and photographed in our studio, this bouquet showcases the natural beauty of premium roses at their very best.",
+    "symbolism": "Fresh roses symbolise love, beauty, and the timeless art of giving."
+  },
+
+  {
+    "id": "fresh-arrangement-02",
+    "title": "Classic Rose Bouquet",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.41 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A lush, classic rose bouquet handcrafted with our finest premium blooms. Perfect for any celebration, this elegant arrangement combines vibrant colour with expert floral design.",
+    "symbolism": "Roses have been a symbol of love and beauty for centuries across every culture."
+  },
+
+  {
+    "id": "fresh-arrangement-03",
+    "title": "Premium Rose Collection",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.42 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Premium Rose Collection brings together the finest varieties from our growers in one stunning arrangement. Each bloom is carefully selected for colour, form, and fragrance.",
+    "symbolism": "Premium roses represent the highest expression of care, beauty, and heartfelt emotion."
+  },
+
+  {
+    "id": "fresh-arrangement-04",
+    "title": "Garden Rose Mix",
+    "category": "Late Spring & Early Summer",
+    "badge": "Trending",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.43 PM(1).jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A gorgeous mix of garden-style roses in complementary shades, arranged with lush greenery for a naturally abundant look. This arrangement captures the romance of a summer garden in full bloom.",
+    "symbolism": "Garden roses symbolise abundance, romance, and the carefree beauty of nature."
+  },
+
+  {
+    "id": "fresh-arrangement-05",
+    "title": "Rose Bouquet Special",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.43 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A special rose bouquet arrangement carefully crafted for maximum visual impact. Our florists select each stem for its perfect bloom stage, ensuring your arrangement stays beautiful for longer.",
+    "symbolism": "A carefully chosen rose bouquet is one of life's most sincere expressions of affection."
+  },
+
+  {
+    "id": "fresh-arrangement-06",
+    "title": "Luxury Rose Bundle",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.44 PM(1).jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Luxury Rose Bundle is designed for those who appreciate the very finest blooms. Generous and spectacular, this arrangement makes an unforgettable impression for weddings, milestones, and grand occasions.",
+    "symbolism": "Luxury roses symbolise sophistication, devotion, and the art of celebrating in style."
+  },
+
+  {
+    "id": "fresh-arrangement-07",
+    "title": "Signature Rose Wrap",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.44 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Signature Rose Wrap is a hand-tied bouquet showcasing premium roses wrapped in our distinctive style. Ideal as a gift or as part of a larger floral arrangement for events and celebrations.",
+    "symbolism": "A hand-tied rose bouquet represents personal care and the beauty of individual attention."
+  },
+
+  {
+    "id": "fresh-arrangement-08",
+    "title": "Seasonal Rose Arrangement",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.45 PM(1).jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A seasonal rose arrangement that celebrates the very best blooms of the moment. Our florists curate this collection fresh each season to bring you nature's finest at its peak.",
+    "symbolism": "Seasonal roses carry the spirit of the present moment — a living reminder to savour life's beauty."
+  },
+
+  {
+    "id": "fresh-arrangement-09",
+    "title": "Studio Rose Collection",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 1.57.45 PM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Studio Rose Collection features an expertly composed arrangement photographed under natural light to showcase each bloom's true colour and texture. What you see is exactly what you receive.",
+    "symbolism": "Roses in their natural beauty are an honest and heartfelt expression of emotion."
+  },
+
+  {
+    "id": "fresh-arrangement-10",
+    "title": "Morning Rose Bouquet",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 7.13.45 AM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Photographed in the soft light of the morning, our Morning Rose Bouquet captures roses at their freshest — dewy, vibrant, and full of life. An ideal gift for early celebrations or a thoughtful morning surprise.",
+    "symbolism": "Morning roses represent a fresh start, new hope, and the joy of a new day."
+  },
+
+  {
+    "id": "fresh-arrangement-11",
+    "title": "David Rose Ensemble",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 7.15.55 AM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "The David Rose Ensemble is our signature collection — a curated selection of the finest roses from our growers, arranged by our expert florists. A true showcase of what David Flower Project does best.",
+    "symbolism": "Our signature ensemble represents our commitment to quality, beauty, and the joy of flowers."
+  },
+
+  {
+    "id": "fresh-arrangement-12",
+    "title": "David's Pride Rose",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/WhatsApp Image 2026-02-27 at 7.16.22 AM.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "David's Pride Rose is our flagship arrangement — the bloom that best represents the David Flower Project ethos of quality, elegance, and passion. Every detail, from stem selection to final presentation, reflects our highest standards.",
+    "symbolism": "David's Pride Rose symbolises the pride and joy we take in every flower we deliver to you."
+  },
+
+  {
   "id": "TSP03-1_D",
   "title": "TSP03-1_D",
   "category": "Winter & Early Spring",
