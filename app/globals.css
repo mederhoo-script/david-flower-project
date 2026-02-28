@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --gold: #2D6A2D;
+    --gold: #08f108;
     --gold-light: #3D8C3D;
     --brand-black: #0A1A0A;
     --beige: #E8F0E8;
@@ -33,7 +33,7 @@
 
 @layer utilities {
   .text-gold {
-    color: #2D6A2D;
+    color: #00ff00;
   }
   .bg-gold {
     background-color: #2D6A2D;
