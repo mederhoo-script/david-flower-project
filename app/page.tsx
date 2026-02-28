@@ -171,7 +171,7 @@ export default function HomePage() {
       <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/peony.jpeg"
+            src="/images/rose.jpeg"
             alt="Order Beautiful Flowers"
             fill
             className="object-cover"

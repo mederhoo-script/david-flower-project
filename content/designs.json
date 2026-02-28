@@ -96,6 +96,54 @@
   },
 
   {
+  "id": "F-340_H",
+  "title": "F-340_H",
+  "category": "Winter & Early Spring",
+  "badge": "Trending",
+  "image": "/images/bouquet/F-340_H.webp",
+  "stemPrice": "$3.50",
+  "bunchPrice": "$29.99",
+  "description": "A stunning bouquet bursting with vibrant colors, perfect for any occasion. This arrangement combines fresh seasonal blooms in a harmonious blend that will brighten anyone's day.\n\nIncludes:\n• Mixed Seasonal Flowers\n• Lush Greenery\n• Cylinder Glass Vase",
+  "symbolism": "F-340_H represents joy and celebration, perfect for sharing happiness with loved ones."
+  },
+
+  {
+  "id": "TEV25-3",
+  "title": "TEV25-3",
+  "category": "Winter & Early Spring",
+  "badge": "Trending",
+  "image": "/images/bouquet/TEV25-3.webp",
+  "stemPrice": "$3.50",
+  "bunchPrice": "$29.99",
+  "description": "A delightful arrangement featuring the finest seasonal blooms. This carefully curated bouquet brings together complementary colors and textures for a truly beautiful display.\n\nIncludes:\n• Pink Spray Roses\n• White Alstroemeria\n• Mixed Fillers\n• Clear Glass Vase",
+  "symbolism": "TEV25-3 embodies elegance and grace, a timeless gift for any special moment."
+  },
+
+  {
+  "id": "rose-reho",
+  "title": "Rose Reho",
+  "category": "Late Spring & Early Summer",
+  "badge": "Popular",
+  "image": "/images/bouquet/rose_reho.jpg",
+  "stemPrice": "$5.50",
+  "bunchPrice": "$48.99",
+  "description": "The Rose Reho is a breathtaking arrangement featuring premium roses in full bloom. Their velvety petals and rich color make this bouquet a true showstopper for any occasion.\n\nIncludes:\n• Premium Roses\n• Baby's Breath\n• Lush Greenery\n• Keepsake Glass Vase",
+  "symbolism": "Roses represent deep love and admiration. Red roses are the ultimate symbol of passion and romance."
+  },
+
+  {
+  "id": "rose-sun",
+  "title": "Rose Sun",
+  "category": "Late Spring & Early Summer",
+  "badge": null,
+  "image": "/images/bouquet/rose_sun.jpg",
+  "stemPrice": "$5.50",
+  "bunchPrice": "$48.99",
+  "description": "A warm, radiant bouquet that captures the essence of a sun-drenched garden. This arrangement of premium roses in golden and warm tones will bring sunshine to any room.\n\nIncludes:\n• Warm-Toned Roses\n• Seasonal Accents\n• Fresh Greenery\n• Clear Glass Vase",
+  "symbolism": "Warm roses symbolize friendship, joy, and the warmth of a bright summer day."
+  },
+
+  {
     "id": "anemone",
     "title": "Anemone",
     "category": "Winter & Early Spring",
@@ -119,15 +167,15 @@
     "symbolism": ""
   },
   {
-    "id": "fritillary",
-    "title": "Fritillary",
+    "id": "snapdragon",
+    "title": "Snapdragon",
     "category": "Winter & Early Spring",
     "badge": null,
-    "image": "/images/fritillary.jpeg",
+    "image": "/images/snapdragon.jpeg",
     "stemPrice": "$3.50",
     "bunchPrice": "$29.99",
-    "description": "Fritillaria Snake's head fritillaries' unique, checkerboard pattern will add a touch of class to any arrangement. There are many species of fritillary used for cutting. Some of my favorites are the statuesque and dramatic Persian lily (F. persica) and crown imperial fritillary (F. imperialis), as well as the delicate and wild snake's head fritillar",
-    "symbolism": ""
+    "description": "Antirrhinum Snapdragons are a beloved cut flower with tall, elegant spikes covered in ruffled blooms. Their color range is extraordinary — from purest white and soft pastels to rich burgundy and bi-colored varieties. Snapdragons add wonderful vertical structure to arrangements and are long-lasting in the vase. Ideal for early spring bouquets, they bring height and drama to any design.",
+    "symbolism": "Snapdragons symbolize grace and strength. In the language of flowers, they represent deception — their blooms snap open and shut like the jaws of a dragon."
   },
   {
     "id": "hellebore",
@@ -272,15 +320,15 @@
     "symbolism": "Hydrangeas' voluminous flowers change color, aging to beautiful antique shades."
   },
   {
-    "id": "hypericum",
-    "title": "Hypericum",
+    "id": "ladys-mantle",
+    "title": "Lady's Mantle",
     "category": "Late Summer & Fall",
     "badge": null,
-    "image": "/images/hypericum.jpeg",
+    "image": "/images/lady-s-mantle.jpeg",
     "stemPrice": "$4.00",
     "bunchPrice": "$34.99",
-    "description": "The glossy, perky hypericum berry is one of my favorite fillers for late summer and fall. Hypericum, or St. John's wort, is covered with a profusion of small, bright-yellow flowers in midsummer. But the plant's main event is the showier berries that follow the flowers in late summer. Clustered on branching woody stems, hypericum berries come in a r",
-    "symbolism": "Hypericum has long been used as a treatment for mild depression, and as a salve for cuts."
+    "description": "Alchemilla Lady's mantle is a classic cottage-garden filler beloved by florists for its cloud-like sprays of tiny chartreuse-yellow flowers and its velvety, scalloped leaves. Its soft frothy texture complements roses and other summer blooms beautifully. The leaves catch raindrops and dew, holding them like silver beads — a sight that has enchanted gardeners for centuries.",
+    "symbolism": "Lady's mantle symbolizes protection and comfort. Its name — Alchemilla — comes from 'alchemy,' as the dew collected on its leaves was once prized by alchemists."
   },
  
   {
@@ -296,14 +344,14 @@
   },
   
   {
-    "id": "jasmine",
-    "title": "Jasmine",
-    "category": "Tropicals",
+    "id": "love-lies-bleeding",
+    "title": "Love-Lies-Bleeding",
+    "category": "Late Summer & Fall",
     "badge": null,
-    "image": "/images/jasmine.jpeg",
+    "image": "/images/love-lies-bleeding.jpeg",
     "stemPrice": "$6.50",
     "bunchPrice": "$54.99",
-    "description": "In the language of flowers, white jasmine is a symbol of amiability, and yellow jasmine a symbol of elegance.",
-    "symbolism": "In the language of flowers, white jasmine is a symbol of amiability, and yellow jasmine"
+    "description": "Amaranthus caudatus Love-lies-bleeding is one of the most dramatic and theatrical plants in the garden. Its long, drooping, rope-like tassels of tiny crimson flowers cascade down like flowing velvet ribbons. This unusual plant adds movement and dark, romantic color to late summer and autumn arrangements. Stunning as a focal point or woven between other blooms.",
+    "symbolism": "Love-lies-bleeding symbolizes hopeless love and undying devotion. Its dramatic, trailing crimson flowers have made it a beloved symbol in poetry and romantic art for centuries."
   }
 ]
