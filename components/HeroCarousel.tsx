@@ -25,87 +25,38 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    bg: '/images/david/Yellow Bassanti.jpeg',
+    bg: '/images/regal/img-2017-04-Mixed-Roses-and-Million-Stars-Red-White-Purple-and-Orange-Roses-2-scaled.jpg',
     tag: 'Fresh Arrivals',
     title: 'Nature\'s Finest Blooms',
     subtitle: 'Curated flowers from seasonal gardens and exotic tropics',
     ctaHref: '/collections',
   },
   {
-    bg: '/images/regal/img-2017-04-Mixed-Roses-and-Million-Stars-Red-White-Purple-and-Orange-Roses-2-scaled.jpg',
+    bg: '/images/regal/img-2017-09-Regal-Mixed-Roses-white-Yellow-and-Red-Roses-scaled.jpg',
     tag: 'Most Popular',
     title: 'Garden Romance',
-    subtitle: 'Lush peonies, roses, and ranunculus — nature\'s most beloved blooms',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/regal/img-2017-09-Regal-Mixed-Roses-white-Yellow-and-Red-Roses-scaled.jpg',
-    tag: 'Seasonal Picks',
-    title: 'Rich Autumn Hues',
-    subtitle: 'Bold dahlias and warm zinnias that paint the season in vivid color',
+    subtitle: 'Lush roses and classic blooms — nature\'s most beloved arrangements',
     ctaHref: '/collections',
   },
   {
     bg: '/images/regal/img-2022-07-Regal-Red-Roses-Million-Stars-with-Ferrero-Chocolate_11zon-1-scaled.jpg',
-    tag: 'Exotic Tropicals',
+    tag: 'Special Occasions',
     title: 'Rare & Beautiful',
-    subtitle: 'Dramatic orchids, agapanthus, and tropical blooms for special occasions',
+    subtitle: 'Stunning arrangements perfect for weddings, gifts, and celebrations',
     ctaHref: '/contact',
   },
   {
     bg: '/images/regal/Regal-Red-roses-and-white-chrysanthemus-and-Yellow-Chrysanthemums_11zon-scaled.jpg',
     tag: 'Spring Collection',
     title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
+    subtitle: 'Elegant seasonal flowers heralding the arrival of a new season',
     ctaHref: '/collections',
   },
   {
     bg: '/images/regal/imgpopular-bundled-xdnb5h7gu8xu76vp1tive.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/istockphoto-638224186-612x612.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/istockphoto-1179997588-612x612.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/istockphoto-1456626236-612x612.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/istockphoto-hero.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/istockphoto-hero2.jpg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
-    ctaHref: '/collections',
-  },
-  {
-    bg: '/images/j.jpeg',
-    tag: 'Spring Collection',
-    title: 'First Blooms of Spring',
-    subtitle: 'Elegant tulips and narcissus heralding the arrival of a new season',
+    tag: 'Seasonal Picks',
+    title: 'Rich & Vibrant',
+    subtitle: 'Bold colours and warm arrangements to brighten any space',
     ctaHref: '/collections',
   },
 ];
@@ -292,7 +243,7 @@ export default function HeroCarousel() {
             <Link href={slide.ctaHref} className="btn-primary">
               Shop This Flower
             </Link>
-            <Link href="/about" className="font-inter text-[11px] tracking-[0.3em] uppercase border border-white/70 text-white px-8 py-3.5 hover:bg-white/10 transition-colors duration-300">
+            <Link href="/collections" className="font-inter text-[11px] tracking-[0.3em] uppercase border border-white/70 text-white px-8 py-3.5 hover:bg-white/10 transition-colors duration-300">
               Discover More
             </Link>
           </div>
