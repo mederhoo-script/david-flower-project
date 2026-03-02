@@ -107,34 +107,11 @@ export default function FlowerCard({ design, onQuickView }: FlowerCardProps) {
 
         {/* Title — clicking also opens quick view */}
         <h3
-          className="font-playfair text-base font-medium text-brand-black leading-snug mb-3 cursor-pointer hover:text-gold transition-colors duration-150"
+          className="font-playfair text-base font-medium text-brand-black leading-snug cursor-pointer hover:text-gold transition-colors duration-150"
           onClick={onQuickView}
         >
           {design.title}
         </h3>
-
-        {/* Pricing */}
-        <div className="space-y-1.5 border-t border-gold/20 pt-3">
-          {/* Price row 1: Per Stem */}
-          <div className="flex items-center justify-between gap-2">
-            <span className="font-inter text-[10px] text-charcoal/60 uppercase tracking-wide flex-shrink-0">
-              Per Stem
-            </span>
-            <span className="font-inter text-sm font-semibold text-brand-black">
-              {design.stemPrice}
-            </span>
-          </div>
-
-          {/* Price row 2: Per Bunch */}
-          <div className="flex items-center justify-between gap-2">
-            <span className="font-inter text-[10px] text-charcoal/60 uppercase tracking-wide flex-shrink-0">
-              Per Bunch
-            </span>
-            <span className="font-inter text-sm font-semibold text-gold">
-              {design.bunchPrice}
-            </span>
-          </div>
-        </div>
       </div>
     </article>
   );

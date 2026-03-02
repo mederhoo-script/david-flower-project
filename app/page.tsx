@@ -64,19 +64,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Pricing legend */}
-          <div className="flex flex-wrap gap-6 mb-8 p-4 bg-beige">
-            <div className="flex items-center gap-2">
-              <span className="font-inter text-xs font-semibold text-brand-black">Per Stem:</span>
-              <span className="font-inter text-xs text-charcoal/70">Individual stems for custom arrangements</span>
-            </div>
-            <div className="w-px bg-gold/30 hidden sm:block" />
-            <div className="flex items-center gap-2">
-              <span className="font-inter text-xs font-semibold text-gold">Per Bunch:</span>
-              <span className="font-inter text-xs text-charcoal/70">~10 stems — best value for events & gifts</span>
-            </div>
-          </div>
-
           {/* Flower grid with Quick View */}
           <FlowersSection designs={designs} />
         </div>

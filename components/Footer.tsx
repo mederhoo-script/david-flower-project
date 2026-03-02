@@ -37,7 +37,6 @@ export default function Footer() {
             <h4 className="font-playfair text-white text-sm tracking-widest uppercase mb-6">Discover</h4>
             <ul className="space-y-3">
               {[
-                { href: '/about', label: 'Our Story' },
                 { href: '/collections', label: 'Flower Catalog' },
                 { href: '/process', label: 'Our Process' },
                 { href: '/contact', label: 'Order Now' },
