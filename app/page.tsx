@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const site = getSiteConfig();
-  const collections = getCollections().slice(0, 3);
+  const collections = getCollections();
   const testimonials = getTestimonials();
   const designs = getDesigns();
 
@@ -93,7 +93,7 @@ export default function HomePage() {
             <div className="gold-divider" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {collections.map((col) => (
               <div key={col.id} className="group cursor-pointer">
                 <Link href="/collections">
@@ -103,7 +103,7 @@ export default function HomePage() {
                       alt={col.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                   <p className="font-inter text-xs tracking-widest uppercase text-gold mb-1">{col.category}</p>
