@@ -16,7 +16,7 @@ interface Props {
   designs: Design[];
 }
 
-const INITIAL_VISIBLE = 6;
+const INITIAL_VISIBLE = 18;
 
 export default function FlowersSection({ designs }: Props) {
   const [activeFlower, setActiveFlower] = useState<Design | null>(null);
