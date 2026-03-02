@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   },
   description: site.intro,
   keywords: ['flower catalog', 'fresh flowers', 'flower delivery', 'tropical flowers', 'seasonal blooms', 'David Flower Project'],
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: site.brandName,
     description: site.intro,

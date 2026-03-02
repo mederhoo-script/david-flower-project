@@ -1,100 +1,334 @@
 [
   {
-  "id": "TSP03-1_D",
-  "title": "TSP03-1_D",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/TSP03-1_D.jpeg",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "This beautiful bouquet's delicate colors are a reminder that spring is a time for rebirth, the world over!\n\nDeluxe contains yellow roses.\n\nPremium contains yellow and pink roses.\n\nIncludes:\n• Red Alstroemeria\n• Yellow Carnations\n• Pink Stock\n• Hot Pink Asters\n• Purple Monte Casino\n• Yellow Button Poms\n• Cylinder Glass Vase",
-  "symbolism": "TSP03-1_Ds represent unfading love—in Greek mythology, TSP03-1_Ds grew from the spilled blood"
+    "id": "fiorella",
+    "title": "Fiorella",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/fiorella.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Fiorella is a soft, romantic garden rose with delicate petals that unfold in gentle waves of blush and cream. Its lush, full blooms and fresh, subtle fragrance make it a favourite for weddings, anniversaries, and everyday luxury arrangements.",
+    "symbolism": "Fiorella represents tenderness and new beginnings — the perfect bloom to celebrate life's most cherished moments."
   },
-
   {
-  "id": "TEV12-4",
-  "title": "TEV12-4",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/TEV12-4.jpg",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "With a mix of everything pretty, the Pretty Please bouquet is great to give on any occasion! A mixture of wonderful colors, from ethereal light pink to bright green, lovely lavender and clean white, all tied up with a bright pink bow. The color and flower combinations makes this bouquet one of our most popular - and for good reason! These flowers will bring a smile to someone's face and be the highlight of their day!\n\nIncludes:\n• Pink Spray Roses\n• Pink Alstroemeria\n• White Daisies\n• Green Button Poms\n• Purple Monte Casino\n• Limonium\n• Glass Vase\n• Hot Pink Ribbon\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
-  "symbolism": "TEV12-4s represent unfading love—in Greek mythology, TEV12-4s grew from the spilled blood"
+    "id": "white-athena",
+    "title": "White Athena",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/white-athena.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "White Athena is a classic, pure-white rose prized by florists worldwide for its perfectly formed blooms and exceptional vase life. Its pristine petals and elegant high-centre form make it the go-to choice for bridal bouquets, sympathy arrangements, and sophisticated table centrepieces.",
+    "symbolism": "White roses symbolise purity, innocence, and eternal love — a timeless tribute to life's most meaningful occasions."
   },
-
-   {
-  "id": "T46-1",
-  "title": "T46-1",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/T46-1.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "An easy way to remind someone you care and are thinking about them - the How Sweet It Is bouquet. Brighten someone's day with this beautiful arrangement of orange spray roses, orange roses, hot pink carnations and asters. This bouquet is ideal for a birthday, as a thank you, or just to let someone know you're thinking about them!\n\nIncludes:\n• Light Orange Roses\n• Orange Spray Roses\n• Hot Pink Carnations\n• Matsumoto Asters\n• Clear Glass Vase\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
-  "symbolism": "T46-1 represent unfading love—in Greek mythology, T46-1 grew from the spilled blood"
-  },
-
   {
-  "id": "V7013",
-  "title": "V7013",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/V7013.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "Take in the hues of a bright morning as the sun rises. This bouquet of flowers has a chic farmhouse style while still staying modern. Bright sunflowers surrounded by pink alstroemeria and green poms are displayed in a mason jar wrapped in raffia. The essence of a field of flowers in the early morning can be brought to your loved ones homes, and will charm anyone who sees it!\n\nIncludes:\n• Sunflowers\n• Red Alstroemeria\n• Pink Roses (Deluxe & Premium Only)\n• Purple Monte Cassino\n• Green Button Poms\n• Mason Jar Vase\n• Personalized Card Message\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
-  "symbolism": "V7013 represent unfading love—in Greek mythology, V7013 grew from the spilled blood"
+    "id": "yellow-bassanti",
+    "title": "Yellow Bassanti",
+    "category": "Late Spring & Early Summer",
+    "badge": "Trending",
+    "image": "/images/david/yellow-bassanti.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Yellow Bassanti is a radiant, sunshine-yellow rose with a warm, uplifting presence. Its bold colour and large, full blooms bring instant cheer to any space. An excellent choice for birthday bouquets, get-well wishes, and cheerful seasonal arrangements.",
+    "symbolism": "Yellow roses symbolise friendship, joy, and warm wishes — the perfect way to brighten someone's day."
   },
-
   {
-  "id": "V7010",
-  "title": "V7010",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/V7010.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "Send stunning flowers to celebrate any occasion! With classic floral colors including red roses and pink lilies, the Rose and Lily Joy is a wonderful gift to send to a friend or family member for a birthday, get well or anniversary. The flowers are arranged by hand at a local florist shop. The floral artist creates the Rose and Lily bouquet with red roses, pink roses, pink lilies, pink alstroemeria and purple waxflower. Paired with the flowers is a keepsake clear vase that is wrapped in a decorative ribbon. Measures 14\"H by 12\"L.\n\nIncludes:\n• Pink Asiatic Lilies\n• Pink and Red Roses\n• Purple Waxflowers\n• Alstroemeria\n• Glass Vase\n• Personalized Card Message",
-  "symbolism": "V7010 represent unfading love—in Greek mythology, V7010 grew from the spilled blood"
+    "id": "cerise",
+    "title": "Cerise",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/cerise.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Cerise is a striking deep-pink to cherry-red rose with richly coloured, velvety petals. Its intense hue and strong stems make it a statement flower in any arrangement, from dramatic single-variety bouquets to mixed floral designs.",
+    "symbolism": "Cerise roses convey deep appreciation, admiration, and heartfelt gratitude."
   },
-
-   {
-  "id": "V7012",
-  "title": "V7012",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/V7012.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "A best selling bouquet for your friends and family. This arrangement is made of bright yellow roses, white lilies, blue delphinium and purple monte casino, all in a clear vase guaranteed to stand out. No matter the occasion, they will light up when receiving this beautiful bouquet.\n\nIncludes:\n• White Asiatic Lilies\n• Yellow Roses\n• Blue Delphinium\n• Purple Monte Cassino\n• Clear Glass Vase\n• Complimentary Card Message",
-  "symbolism": "V7012 represent unfading love—in Greek mythology, V7012 grew from the spilled blood"
+  {
+    "id": "ever-red",
+    "title": "Ever Red",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/ever-red.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Ever Red is a premium dark-red rose with velvety, deep-crimson petals and a long, strong stem. Its luxurious colour and classic form make it the ultimate romantic gesture — perfect for Valentine's Day, anniversaries, and any moment that calls for a declaration of love.",
+    "symbolism": "Deep red roses are the universal symbol of passionate love, desire, and devotion."
   },
-
-   {
-  "id": "TEV55-3",
-  "title": "TEV55-3",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/TEV55-3.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "Looking for a floral arrangement that will suit just about any occasion? You came to the right place! Send this Light Pink Beauty! Overflowing with fresh carnations and alstromerias, this bouquet will arrive to your recipient's doorstep and take their breath away! Delicately arranged with a glass vase, this beautiful bouquet is sure to make that special someone smile.\n\nIncludes:\n• Pink Alstroemeria\n• Pink Carnations\n• White Mini Carnations\n• Dusty Miller\n• Huckleberry\n• Leatherleaf Fern\n• Lemon Leaf\n• Clear Glass Vase",
-  "symbolism": "TEV55-3 represent unfading love—in Greek mythology, TEV55-3 grew from the spilled blood"
+  {
+    "id": "sparta",
+    "title": "Sparta",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/sparta.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Sparta is a bold, striking rose with rich, jewel-toned blooms and exceptional stem strength. Its vivid colour and long vase life make it a top pick for high-impact event floristry, statement table arrangements, and luxury gifting.",
+    "symbolism": "Sparta symbolises strength, passion, and boldness — a rose that commands attention and admiration."
   },
-
-   {
-  "id": "TEVe12",
-  "title": "TEVe12",
-  "category": "Winter & Early Spring",
-  "badge": "Trending",
-  "image": "/images/bouquet/TEV55-3.webp",
-  "stemPrice": "$3.50",
-  "bunchPrice": "$29.99",
-  "description": "This beautiful bouquet's delicate colors are a reminder that spring is a time for rebirth, the world over!\n\nDeluxe contains yellow roses.\n\nPremium contains yellow and pink roses.\n\nIncludes:\n• Red Alstroemeria\n• Yellow Carnations\n• Pink Stock\n• Hot Pink Asters\n• Purple Monte Casino\n• Yellow Button Poms\n• Cylinder Glass Vase",
-  "symbolism": "TEVe12 represent unfading love—in Greek mythology, TEVe12 grew from the spilled blood"
+  {
+    "id": "fresh-arrangement-01",
+    "title": "Fresh Rose Arrangement",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/fresh-arrangement-01.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A beautifully handcrafted rose arrangement featuring our freshest seasonal blooms. Designed and photographed in our studio, this bouquet showcases the natural beauty of premium roses at their very best.",
+    "symbolism": "Fresh roses symbolise love, beauty, and the timeless art of giving."
   },
-
+  {
+    "id": "fresh-arrangement-02",
+    "title": "Classic Rose Bouquet",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-02.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A lush, classic rose bouquet handcrafted with our finest premium blooms. Perfect for any celebration, this elegant arrangement combines vibrant colour with expert floral design.",
+    "symbolism": "Roses have been a symbol of love and beauty for centuries across every culture."
+  },
+  {
+    "id": "fresh-arrangement-03",
+    "title": "Premium Rose Collection",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-03.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Premium Rose Collection brings together the finest varieties from our growers in one stunning arrangement. Each bloom is carefully selected for colour, form, and fragrance.",
+    "symbolism": "Premium roses represent the highest expression of care, beauty, and heartfelt emotion."
+  },
+  {
+    "id": "fresh-arrangement-04",
+    "title": "Garden Rose Mix",
+    "category": "Late Spring & Early Summer",
+    "badge": "Trending",
+    "image": "/images/david/fresh-arrangement-04.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A gorgeous mix of garden-style roses in complementary shades, arranged with lush greenery for a naturally abundant look. This arrangement captures the romance of a summer garden in full bloom.",
+    "symbolism": "Garden roses symbolise abundance, romance, and the carefree beauty of nature."
+  },
+  {
+    "id": "fresh-arrangement-05",
+    "title": "Rose Bouquet Special",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-05.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A special rose bouquet arrangement carefully crafted for maximum visual impact. Our florists select each stem for its perfect bloom stage, ensuring your arrangement stays beautiful for longer.",
+    "symbolism": "A carefully chosen rose bouquet is one of life's most sincere expressions of affection."
+  },
+  {
+    "id": "fresh-arrangement-06",
+    "title": "Luxury Rose Bundle",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/fresh-arrangement-06.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Luxury Rose Bundle is designed for those who appreciate the very finest blooms. Generous and spectacular, this arrangement makes an unforgettable impression for weddings, milestones, and grand occasions.",
+    "symbolism": "Luxury roses symbolise sophistication, devotion, and the art of celebrating in style."
+  },
+  {
+    "id": "fresh-arrangement-07",
+    "title": "Signature Rose Wrap",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-07.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Signature Rose Wrap is a hand-tied bouquet showcasing premium roses wrapped in our distinctive style. Ideal as a gift or as part of a larger floral arrangement for events and celebrations.",
+    "symbolism": "A hand-tied rose bouquet represents personal care and the beauty of individual attention."
+  },
+  {
+    "id": "fresh-arrangement-08",
+    "title": "Seasonal Rose Arrangement",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-08.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A seasonal rose arrangement that celebrates the very best blooms of the moment. Our florists curate this collection fresh each season to bring you nature's finest at its peak.",
+    "symbolism": "Seasonal roses carry the spirit of the present moment — a living reminder to savour life's beauty."
+  },
+  {
+    "id": "fresh-arrangement-09",
+    "title": "Studio Rose Collection",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/david/fresh-arrangement-09.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Our Studio Rose Collection features an expertly composed arrangement photographed under natural light to showcase each bloom's true colour and texture. What you see is exactly what you receive.",
+    "symbolism": "Roses in their natural beauty are an honest and heartfelt expression of emotion."
+  },
+  {
+    "id": "fresh-arrangement-10",
+    "title": "Morning Rose Bouquet",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/fresh-arrangement-10.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "Photographed in the soft light of the morning, our Morning Rose Bouquet captures roses at their freshest — dewy, vibrant, and full of life. An ideal gift for early celebrations or a thoughtful morning surprise.",
+    "symbolism": "Morning roses represent a fresh start, new hope, and the joy of a new day."
+  },
+  {
+    "id": "fresh-arrangement-11",
+    "title": "David Rose Ensemble",
+    "category": "Late Spring & Early Summer",
+    "badge": "New",
+    "image": "/images/david/fresh-arrangement-11.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "The David Rose Ensemble is our signature collection — a curated selection of the finest roses from our growers, arranged by our expert florists. A true showcase of what David Flower Project does best.",
+    "symbolism": "Our signature ensemble represents our commitment to quality, beauty, and the joy of flowers."
+  },
+  {
+    "id": "fresh-arrangement-12",
+    "title": "David's Pride Rose",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/david/fresh-arrangement-12.jpeg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "David's Pride Rose is our flagship arrangement — the bloom that best represents the David Flower Project ethos of quality, elegance, and passion. Every detail, from stem selection to final presentation, reflects our highest standards.",
+    "symbolism": "David's Pride Rose symbolises the pride and joy we take in every flower we deliver to you."
+  },
+  {
+    "id": "TSP03-1_D",
+    "title": "TSP03-1_D",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/tsp03-1-d.jpeg",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "This beautiful bouquet's delicate colors are a reminder that spring is a time for rebirth, the world over!\n\nDeluxe contains yellow roses.\n\nPremium contains yellow and pink roses.\n\nIncludes:\n• Red Alstroemeria\n• Yellow Carnations\n• Pink Stock\n• Hot Pink Asters\n• Purple Monte Casino\n• Yellow Button Poms\n• Cylinder Glass Vase",
+    "symbolism": "TSP03-1_Ds represent unfading love—in Greek mythology, TSP03-1_Ds grew from the spilled blood"
+  },
+  {
+    "id": "TEV12-4",
+    "title": "TEV12-4",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/tev12-4.jpg",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "With a mix of everything pretty, the Pretty Please bouquet is great to give on any occasion! A mixture of wonderful colors, from ethereal light pink to bright green, lovely lavender and clean white, all tied up with a bright pink bow. The color and flower combinations makes this bouquet one of our most popular - and for good reason! These flowers will bring a smile to someone's face and be the highlight of their day!\n\nIncludes:\n• Pink Spray Roses\n• Pink Alstroemeria\n• White Daisies\n• Green Button Poms\n• Purple Monte Casino\n• Limonium\n• Glass Vase\n• Hot Pink Ribbon\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
+    "symbolism": "TEV12-4s represent unfading love—in Greek mythology, TEV12-4s grew from the spilled blood"
+  },
+  {
+    "id": "T46-1",
+    "title": "T46-1",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/t46-1.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "An easy way to remind someone you care and are thinking about them - the How Sweet It Is bouquet. Brighten someone's day with this beautiful arrangement of orange spray roses, orange roses, hot pink carnations and asters. This bouquet is ideal for a birthday, as a thank you, or just to let someone know you're thinking about them!\n\nIncludes:\n• Light Orange Roses\n• Orange Spray Roses\n• Hot Pink Carnations\n• Matsumoto Asters\n• Clear Glass Vase\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
+    "symbolism": "T46-1 represent unfading love—in Greek mythology, T46-1 grew from the spilled blood"
+  },
+  {
+    "id": "V7013",
+    "title": "V7013",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/v7013.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "Take in the hues of a bright morning as the sun rises. This bouquet of flowers has a chic farmhouse style while still staying modern. Bright sunflowers surrounded by pink alstroemeria and green poms are displayed in a mason jar wrapped in raffia. The essence of a field of flowers in the early morning can be brought to your loved ones homes, and will charm anyone who sees it!\n\nIncludes:\n• Sunflowers\n• Red Alstroemeria\n• Pink Roses (Deluxe & Premium Only)\n• Purple Monte Cassino\n• Green Button Poms\n• Mason Jar Vase\n• Personalized Card Message\n\nPet Safety Precautions: Please be sure to keep out of pets reach as this bouquet or plant may include flowers and foliage that are known to be toxic to pets.",
+    "symbolism": "V7013 represent unfading love—in Greek mythology, V7013 grew from the spilled blood"
+  },
+  {
+    "id": "V7010",
+    "title": "V7010",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/v7010.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "Send stunning flowers to celebrate any occasion! With classic floral colors including red roses and pink lilies, the Rose and Lily Joy is a wonderful gift to send to a friend or family member for a birthday, get well or anniversary. The flowers are arranged by hand at a local florist shop. The floral artist creates the Rose and Lily bouquet with red roses, pink roses, pink lilies, pink alstroemeria and purple waxflower. Paired with the flowers is a keepsake clear vase that is wrapped in a decorative ribbon. Measures 14\"H by 12\"L.\n\nIncludes:\n• Pink Asiatic Lilies\n• Pink and Red Roses\n• Purple Waxflowers\n• Alstroemeria\n• Glass Vase\n• Personalized Card Message",
+    "symbolism": "V7010 represent unfading love—in Greek mythology, V7010 grew from the spilled blood"
+  },
+  {
+    "id": "V7012",
+    "title": "V7012",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/v7012.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "A best selling bouquet for your friends and family. This arrangement is made of bright yellow roses, white lilies, blue delphinium and purple monte casino, all in a clear vase guaranteed to stand out. No matter the occasion, they will light up when receiving this beautiful bouquet.\n\nIncludes:\n• White Asiatic Lilies\n• Yellow Roses\n• Blue Delphinium\n• Purple Monte Cassino\n• Clear Glass Vase\n• Complimentary Card Message",
+    "symbolism": "V7012 represent unfading love—in Greek mythology, V7012 grew from the spilled blood"
+  },
+  {
+    "id": "TEV55-3",
+    "title": "TEV55-3",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/tev55-3.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "Looking for a floral arrangement that will suit just about any occasion? You came to the right place! Send this Light Pink Beauty! Overflowing with fresh carnations and alstromerias, this bouquet will arrive to your recipient's doorstep and take their breath away! Delicately arranged with a glass vase, this beautiful bouquet is sure to make that special someone smile.\n\nIncludes:\n• Pink Alstroemeria\n• Pink Carnations\n• White Mini Carnations\n• Dusty Miller\n• Huckleberry\n• Leatherleaf Fern\n• Lemon Leaf\n• Clear Glass Vase",
+    "symbolism": "TEV55-3 represent unfading love—in Greek mythology, TEV55-3 grew from the spilled blood"
+  },
+  {
+    "id": "TEVe12",
+    "title": "TEVe12",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/tev55-3.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "This beautiful bouquet's delicate colors are a reminder that spring is a time for rebirth, the world over!\n\nDeluxe contains yellow roses.\n\nPremium contains yellow and pink roses.\n\nIncludes:\n• Red Alstroemeria\n• Yellow Carnations\n• Pink Stock\n• Hot Pink Asters\n• Purple Monte Casino\n• Yellow Button Poms\n• Cylinder Glass Vase",
+    "symbolism": "TEVe12 represent unfading love—in Greek mythology, TEVe12 grew from the spilled blood"
+  },
+  {
+    "id": "F-340_H",
+    "title": "F-340_H",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/f-340-h.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "A stunning bouquet bursting with vibrant colors, perfect for any occasion. This arrangement combines fresh seasonal blooms in a harmonious blend that will brighten anyone's day.\n\nIncludes:\n• Mixed Seasonal Flowers\n• Lush Greenery\n• Cylinder Glass Vase",
+    "symbolism": "F-340_H represents joy and celebration, perfect for sharing happiness with loved ones."
+  },
+  {
+    "id": "TEV25-3",
+    "title": "TEV25-3",
+    "category": "Winter & Early Spring",
+    "badge": "Trending",
+    "image": "/images/bouquet/tev25-3.webp",
+    "stemPrice": "$3.50",
+    "bunchPrice": "$29.99",
+    "description": "A delightful arrangement featuring the finest seasonal blooms. This carefully curated bouquet brings together complementary colors and textures for a truly beautiful display.\n\nIncludes:\n• Pink Spray Roses\n• White Alstroemeria\n• Mixed Fillers\n• Clear Glass Vase",
+    "symbolism": "TEV25-3 embodies elegance and grace, a timeless gift for any special moment."
+  },
+  {
+    "id": "rose-reho",
+    "title": "Rose Reho",
+    "category": "Late Spring & Early Summer",
+    "badge": "Popular",
+    "image": "/images/bouquet/rose-reho.jpg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "The Rose Reho is a breathtaking arrangement featuring premium roses in full bloom. Their velvety petals and rich color make this bouquet a true showstopper for any occasion.\n\nIncludes:\n• Premium Roses\n• Baby's Breath\n• Lush Greenery\n• Keepsake Glass Vase",
+    "symbolism": "Roses represent deep love and admiration. Red roses are the ultimate symbol of passion and romance."
+  },
+  {
+    "id": "rose-sun",
+    "title": "Rose Sun",
+    "category": "Late Spring & Early Summer",
+    "badge": null,
+    "image": "/images/bouquet/rose-sun.jpg",
+    "stemPrice": "$5.50",
+    "bunchPrice": "$48.99",
+    "description": "A warm, radiant bouquet that captures the essence of a sun-drenched garden. This arrangement of premium roses in golden and warm tones will bring sunshine to any room.\n\nIncludes:\n• Warm-Toned Roses\n• Seasonal Accents\n• Fresh Greenery\n• Clear Glass Vase",
+    "symbolism": "Warm roses symbolize friendship, joy, and the warmth of a bright summer day."
+  },
   {
     "id": "anemone",
     "title": "Anemone",
@@ -106,7 +340,6 @@
     "description": "I love anemones—their jewel- bright colors are so welcome after a long, dreary winter. Anemones' bold color and shape lend themselves perfectly to a simple, single- flower-type arrangement. They also have a good amount of their own green in the form of a fetching \"ruff,\" which frames their faces. As well as their surprisingly long vase life, anemon",
     "symbolism": "Anemones represent unfading love—in Greek mythology, anemones grew from the spilled blood"
   },
-  
   {
     "id": "freesia",
     "title": "Freesia",
@@ -119,15 +352,15 @@
     "symbolism": ""
   },
   {
-    "id": "fritillary",
-    "title": "Fritillary",
+    "id": "snapdragon",
+    "title": "Snapdragon",
     "category": "Winter & Early Spring",
     "badge": null,
-    "image": "/images/fritillary.jpeg",
+    "image": "/images/snapdragon.jpeg",
     "stemPrice": "$3.50",
     "bunchPrice": "$29.99",
-    "description": "Fritillaria Snake's head fritillaries' unique, checkerboard pattern will add a touch of class to any arrangement. There are many species of fritillary used for cutting. Some of my favorites are the statuesque and dramatic Persian lily (F. persica) and crown imperial fritillary (F. imperialis), as well as the delicate and wild snake's head fritillar",
-    "symbolism": ""
+    "description": "Antirrhinum Snapdragons are a beloved cut flower with tall, elegant spikes covered in ruffled blooms. Their color range is extraordinary — from purest white and soft pastels to rich burgundy and bi-colored varieties. Snapdragons add wonderful vertical structure to arrangements and are long-lasting in the vase. Ideal for early spring bouquets, they bring height and drama to any design.",
+    "symbolism": "Snapdragons symbolize grace and strength. In the language of flowers, they represent deception — their blooms snap open and shut like the jaws of a dragon."
   },
   {
     "id": "hellebore",
@@ -140,7 +373,6 @@
     "description": "Helleborus Hellebores have an understated air that suits the soft light of late winter and early spring. The flowers of the Lenten rose (Helleborus orientalis) are the first cut flowers of the season, and one of the longest lasting in the garden. Even after fertilization, the petals do not fall, but remain to protect the ripening seedhead. Selectiv",
     "symbolism": "Display hellebore arrangements on a mantlepiece or high shelf so you can see the flowers'"
   },
-  
   {
     "id": "muscari",
     "title": "Muscari",
@@ -152,8 +384,6 @@
     "description": "An easy plant to grow, muscari has perfectly formed, conical- shaped clusters of flowers. Muscari's common name, grape hyacinth, refers to the flowers being similar in appearance to a bunch of grapes. The blooms come in shades of blue, white, and sometimes pink, but few varieties have the stem length necessary for use as a cut flower. The best way ",
     "symbolism": ""
   },
-  
-  
   {
     "id": "sweet-william",
     "title": "Sweet William",
@@ -165,7 +395,6 @@
     "description": "Easy to grow from seed, sweet Williams are often better quality home grown or locally purchased. Sweet",
     "symbolism": "Easy to grow from seed, sweet Williams are often better quality home grown or locally purchased."
   },
-  
   {
     "id": "iris",
     "title": "Iris",
@@ -177,7 +406,6 @@
     "description": "for Siberian irises. This variety is called ‘Sparkling Rose.' \"Iris\" is the Greek word for rainbow.",
     "symbolism": ""
   },
-  
   {
     "id": "lavender",
     "title": "Lavender",
@@ -189,7 +417,6 @@
     "description": "cleanse, perfume, and annoint since Ancient Egyptian times.",
     "symbolism": ""
   },
-  
   {
     "id": "nigella",
     "title": "Nigella",
@@ -201,7 +428,6 @@
     "description": "develop into seed pods—use this variety in form to add interest to arrangements.",
     "symbolism": "Nigella damascena ‘Miss Jekyll Blue' has large, sky-blue, semi-double flowers."
   },
-  
   {
     "id": "rose",
     "title": "Rose",
@@ -224,7 +450,6 @@
     "description": "Achillea Yarrow's color palette reminds me of a Persian rug, with deep reds and pinks to golden yellow.",
     "symbolism": "Achillea Yarrow's color palette reminds me of a Persian rug, with deep"
   },
-  
   {
     "id": "cosmos",
     "title": "Cosmos",
@@ -236,7 +461,6 @@
     "description": "Cosmos has an understated elegance with its crinkled petals and open flowers. Two types of cosmos are used as cut flowers.",
     "symbolism": "Cosmos has an understated elegance with its crinkled petals and open flowers."
   },
- 
   {
     "id": "dahlia",
     "title": "Dahlia",
@@ -248,7 +472,6 @@
     "description": "member of the ball group of dahlias. It has good stem length and vase life, so it is an excellent variety for cutting.",
     "symbolism": "In the language of flowers, dahlias are a symbol of dignity. No other flower is as generous"
   },
- 
   {
     "id": "sunflower",
     "title": "Sunflower",
@@ -272,17 +495,16 @@
     "symbolism": "Hydrangeas' voluminous flowers change color, aging to beautiful antique shades."
   },
   {
-    "id": "hypericum",
-    "title": "Hypericum",
+    "id": "ladys-mantle",
+    "title": "Lady's Mantle",
     "category": "Late Summer & Fall",
     "badge": null,
-    "image": "/images/hypericum.jpeg",
+    "image": "/images/lady-s-mantle.jpeg",
     "stemPrice": "$4.00",
     "bunchPrice": "$34.99",
-    "description": "The glossy, perky hypericum berry is one of my favorite fillers for late summer and fall. Hypericum, or St. John's wort, is covered with a profusion of small, bright-yellow flowers in midsummer. But the plant's main event is the showier berries that follow the flowers in late summer. Clustered on branching woody stems, hypericum berries come in a r",
-    "symbolism": "Hypericum has long been used as a treatment for mild depression, and as a salve for cuts."
+    "description": "Alchemilla Lady's mantle is a classic cottage-garden filler beloved by florists for its cloud-like sprays of tiny chartreuse-yellow flowers and its velvety, scalloped leaves. Its soft frothy texture complements roses and other summer blooms beautifully. The leaves catch raindrops and dew, holding them like silver beads — a sight that has enchanted gardeners for centuries.",
+    "symbolism": "Lady's mantle symbolizes protection and comfort. Its name — Alchemilla — comes from 'alchemy,' as the dew collected on its leaves was once prized by alchemists."
   },
- 
   {
     "id": "zinnia",
     "title": "Zinnia",
@@ -294,16 +516,15 @@
     "description": "The party animals of the cut-flower world, zinnias appear in a festive array of bright colors. Zinnias are single or double daisylike flowers. Their brightly colored, papery petals and intricate, jewel-like centers make them look almost artificial. There is a fantastic range of varieties available to cut-flower growers, from smaller, long-stemmed v",
     "symbolism": "Zinnia elegans ‘Benary's Giant Coral' is a fully double, annual form, meaning it has more petals than single or double forms,"
   },
-  
   {
-    "id": "jasmine",
-    "title": "Jasmine",
-    "category": "Tropicals",
+    "id": "love-lies-bleeding",
+    "title": "Love-Lies-Bleeding",
+    "category": "Late Summer & Fall",
     "badge": null,
-    "image": "/images/jasmine.jpeg",
+    "image": "/images/love-lies-bleeding.jpeg",
     "stemPrice": "$6.50",
     "bunchPrice": "$54.99",
-    "description": "In the language of flowers, white jasmine is a symbol of amiability, and yellow jasmine a symbol of elegance.",
-    "symbolism": "In the language of flowers, white jasmine is a symbol of amiability, and yellow jasmine"
+    "description": "Amaranthus caudatus Love-lies-bleeding is one of the most dramatic and theatrical plants in the garden. Its long, drooping, rope-like tassels of tiny crimson flowers cascade down like flowing velvet ribbons. This unusual plant adds movement and dark, romantic color to late summer and autumn arrangements. Stunning as a focal point or woven between other blooms.",
+    "symbolism": "Love-lies-bleeding symbolizes hopeless love and undying devotion. Its dramatic, trailing crimson flowers have made it a beloved symbol in poetry and romantic art for centuries."
   }
 ]

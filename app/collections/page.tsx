@@ -33,27 +33,6 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      {/* Pricing legend */}
-      <div className="bg-beige border-b border-gold/20 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap gap-4 items-center">
-          <p className="font-inter text-[10px] tracking-[0.3em] uppercase text-charcoal/50">Order options:</p>
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 bg-brand-black flex-shrink-0" aria-hidden="true" />
-            <span className="font-inter text-xs font-semibold text-brand-black">Per Stem:</span>
-            <span className="font-inter text-xs text-charcoal/70">Individual stems for custom arrangements</span>
-          </div>
-          <div className="w-px h-4 bg-gold/30 hidden sm:block" />
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 bg-gold flex-shrink-0" aria-hidden="true" />
-            <span className="font-inter text-xs font-semibold text-gold">Per Bunch:</span>
-            <span className="font-inter text-xs text-charcoal/70">~10 stems — best value for events &amp; gifts</span>
-          </div>
-          <p className="font-inter text-[10px] text-charcoal/40 w-full sm:w-auto sm:ml-auto">
-            🌸 Tap any flower to order via WhatsApp
-          </p>
-        </div>
-      </div>
-
       {/* Full Flower Grid with Quick View */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">

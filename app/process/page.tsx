@@ -18,7 +18,7 @@ export default function ProcessPage() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/lily-of-the-valley.jpeg"
+            src="/images/hydrangea.jpeg"
             alt="From Garden to Door"
             fill
             className="object-cover"
@@ -70,8 +70,8 @@ export default function ProcessPage() {
       {/* Image Break */}
       <section className="relative h-[50vh] overflow-hidden">
         <Image
-          src="/images/cherry-blossom.jpeg"
-          alt="Beautiful Cherry Blossom"
+          src="/images/anemone.jpeg"
+          alt="Beautiful Anemone Flowers"
           fill
           className="object-cover"
           sizes="100vw"

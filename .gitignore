@@ -7,3 +7,4 @@ node_modules/
 dist/
 flower_details.pdf
 *.pdf
+tsconfig.tsbuildinfo

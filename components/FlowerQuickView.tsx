@@ -28,8 +28,6 @@ interface Props {
   onNavigate: (d: Design) => void;
 }
 
-type OrderOption = 'per-stem' | 'per-bunch';
-
 const TABS = ['Description', 'Care & Vase Life', 'Order Info'] as const;
 type Tab = (typeof TABS)[number];
 
@@ -61,12 +59,10 @@ const WA_ICON = (
 
 export default function FlowerQuickView({ design, allDesigns, onClose, onNavigate }: Props) {
   const [activeTab, setActiveTab] = useState<Tab | null>('Description');
-  const [orderOption, setOrderOption] = useState<OrderOption>('per-bunch');
 
   // Reset state when design changes
   useEffect(() => {
     setActiveTab('Description');
-    setOrderOption('per-bunch');
   }, [design?.id]);
 
   // Body scroll lock
@@ -96,16 +92,11 @@ export default function FlowerQuickView({ design, allDesigns, onClose, onNavigat
     .slice(0, 8);
 
   // WhatsApp messages — tailored per order option
-  const waMessageStem = encodeURIComponent(
-    `Hello David Flower Project! 🌸\n\nI'm interested in ordering *${design.title}* (${design.category}).\n\n✅ *Order: Per Stem*\nPrice: ${design.stemPrice} per stem\n\nPlease confirm availability and arrange delivery. Thank you!`
-  );
-  const waMessageBunch = encodeURIComponent(
-    `Hello David Flower Project! 🌸\n\nI'm interested in ordering *${design.title}* (${design.category}).\n\n✅ *Order: Per Bunch* (~10 stems)\nPrice: ${design.bunchPrice} per bunch\n\nPlease confirm availability and arrange delivery. Thank you!`
+  const waMessage = encodeURIComponent(
+    `Hello David Flower Project! 🌸\n\nI'm interested in ordering *${design.title}* (${design.category}).\n\nPlease confirm availability and arrange delivery. Thank you!`
   );
 
-  const waUrl = `https://wa.me/${WA_NUMBER}?text=${orderOption === 'per-stem' ? waMessageStem : waMessageBunch}`;
-
-  const selectedPrice = orderOption === 'per-stem' ? design.stemPrice : design.bunchPrice;
+  const waUrl = `https://wa.me/${WA_NUMBER}?text=${waMessage}`;
 
   return (
     /* ── FULL-PAGE OVERLAY ──────────────────────────────────────────────────── */
@@ -187,124 +178,20 @@ export default function FlowerQuickView({ design, allDesigns, onClose, onNavigat
             </div>
           )}
 
-          {/* ── ORDER SELECTOR ─────────────────────────────────────────── */}
-          <div>
-            <p className="font-inter text-[10px] tracking-[0.25em] uppercase text-charcoal/60 mb-3">
-              Choose Your Order
-            </p>
-
-            <div className="flex flex-col gap-3">
-              {/* Option A: Per Stem */}
-              <label
-                className={`flex items-start gap-4 p-4 border-2 cursor-pointer transition-all duration-200 ${
-                  orderOption === 'per-stem'
-                    ? 'border-brand-black bg-brand-black/[0.03]'
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="orderOption"
-                  value="per-stem"
-                  checked={orderOption === 'per-stem'}
-                  onChange={() => setOrderOption('per-stem')}
-                  className="sr-only"
-                />
-                <span className={`mt-0.5 w-5 h-5 flex-shrink-0 border-2 rounded-full flex items-center justify-center transition-colors ${orderOption === 'per-stem' ? 'border-brand-black' : 'border-gray-300'}`}>
-                  {orderOption === 'per-stem' && <span className="w-2.5 h-2.5 rounded-full bg-brand-black" />}
-                </span>
-                <div className="flex-1">
-                  <p className="font-inter text-xs font-semibold text-brand-black uppercase tracking-wide">
-                    Per Stem
-                  </p>
-                  <p className="font-inter text-[11px] text-charcoal/60 mt-0.5 leading-relaxed">
-                    Order individual stems — perfect for custom arrangements or small bouquets.
-                  </p>
-                </div>
-                <span className="font-playfair text-lg font-semibold text-brand-black flex-shrink-0">
-                  {design.stemPrice}
-                </span>
-              </label>
-
-              {/* Option B: Per Bunch */}
-              <label
-                className={`flex items-start gap-4 p-4 border-2 cursor-pointer transition-all duration-200 ${
-                  orderOption === 'per-bunch'
-                    ? 'border-gold bg-gold/[0.04]'
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="orderOption"
-                  value="per-bunch"
-                  checked={orderOption === 'per-bunch'}
-                  onChange={() => setOrderOption('per-bunch')}
-                  className="sr-only"
-                />
-                <span className={`mt-0.5 w-5 h-5 flex-shrink-0 border-2 rounded-full flex items-center justify-center transition-colors ${orderOption === 'per-bunch' ? 'border-gold' : 'border-gray-300'}`}>
-                  {orderOption === 'per-bunch' && <span className="w-2.5 h-2.5 rounded-full bg-gold" />}
-                </span>
-                <div className="flex-1">
-                  <p className="font-inter text-xs font-semibold text-gold uppercase tracking-wide">
-                    Per Bunch (~10 stems)
-                  </p>
-                  <p className="font-inter text-[11px] text-charcoal/60 mt-0.5 leading-relaxed">
-                    Best value — ideal for events, decorations, and full floral arrangements.
-                  </p>
-                </div>
-                <span className="font-playfair text-lg font-semibold text-gold flex-shrink-0">
-                  {design.bunchPrice}
-                </span>
-              </label>
-            </div>
-
-            {/* Contextual confirmation message */}
-            <div className={`mt-3 px-4 py-3 text-[11px] font-inter leading-relaxed ${
-              orderOption === 'per-stem'
-                ? 'bg-brand-black/5 text-brand-black border-l-2 border-brand-black'
-                : 'bg-gold/10 text-charcoal border-l-2 border-gold'
-            }`}>
-              {orderOption === 'per-stem'
-                ? '✓ Individual stems are freshly cut and conditioned for maximum vase life.'
-                : '✓ Great value! Bunches are securely wrapped and delivered fresh to your door.'
-              }
-            </div>
-          </div>
-
-          {/* Selected price summary */}
-          <div className="flex items-center justify-between py-3 border-t border-b border-gold/20">
-            <span className="font-inter text-xs text-charcoal/60 uppercase tracking-wide">
-              {orderOption === 'per-stem' ? 'Price per stem' : 'Price per bunch (~10 stems)'}
-            </span>
-            <span className={`font-playfair text-2xl font-bold ${
-              orderOption === 'per-stem' ? 'text-brand-black' : 'text-gold'
-            }`}>
-              {selectedPrice}
-            </span>
-          </div>
-
           {/* ── CTA: Order via WhatsApp ────────────────────────────────────── */}
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center justify-center gap-2 w-full font-inter text-xs tracking-[0.2em] uppercase py-4 transition-colors duration-200 ${
-              orderOption === 'per-stem'
-                ? 'bg-brand-black text-white hover:bg-gold'
-                : 'bg-gold text-white hover:bg-brand-black'
-            }`}
+            className="flex items-center justify-center gap-2 w-full font-inter text-xs tracking-[0.2em] uppercase py-4 bg-gold text-white hover:bg-brand-black transition-colors duration-200"
           >
             {WA_ICON}
-            {orderOption === 'per-stem'
-              ? 'Order Per Stem via WhatsApp'
-              : 'Order Per Bunch via WhatsApp'
-            }
+            Enquire via WhatsApp
           </a>
 
           {/* Secondary: contact page */}
           <Link
-            href={`/contact?flower=${design.id}&order=${orderOption}`}
+            href={`/contact?flower=${design.id}`}
             onClick={onClose}
             className="flex items-center justify-center w-full font-inter text-xs tracking-[0.2em] uppercase border border-brand-black text-brand-black py-3 hover:bg-brand-black hover:text-white transition-colors duration-200"
           >
@@ -312,7 +199,7 @@ export default function FlowerQuickView({ design, allDesigns, onClose, onNavigat
           </Link>
 
           <p className="font-inter text-[10px] text-charcoal/40 text-center">
-            Fresh daily · Same-day delivery · Custom arrangements available
+            Fresh daily · Custom arrangements available
           </p>
 
           {/* ── ACCORDION TABS ───────────────────────────────────────────── */}
@@ -367,9 +254,6 @@ export default function FlowerQuickView({ design, allDesigns, onClose, onNavigat
                   </p>
                   <p className="font-playfair text-sm font-medium leading-snug line-clamp-2 text-brand-black group-hover:text-gold transition-colors duration-150">
                     {d.title}
-                  </p>
-                  <p className="font-inter text-xs text-charcoal/60 mt-1">
-                    From {d.stemPrice}
                   </p>
                 </button>
               ))}

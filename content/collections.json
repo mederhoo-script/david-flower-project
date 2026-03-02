@@ -2,14 +2,14 @@
   {
     "id": "winter-early-spring",
     "title": "Winter & Early Spring",
-    "image": "/images/tulip.jpeg",
+    "image": "/images/anemone.jpeg",
     "category": "Seasonal",
-    "story": "Delicate blooms that brave the cold \u2014 from jewel-bright anemones and graceful tulips to fragrant narcissus and the earliest cherry blossoms. These resilient beauties mark the end of winter with quiet elegance."
+    "story": "Delicate blooms that brave the cold — from jewel-bright anemones and graceful tulips to fragrant narcissus and the earliest cherry blossoms. These resilient beauties mark the end of winter with quiet elegance."
   },
   {
     "id": "late-spring-early-summer",
     "title": "Late Spring & Early Summer",
-    "image": "/images/peony.jpeg",
+    "image": "/images/rose.jpeg",
     "category": "Seasonal",
     "story": "The garden bursts into full glory with lush peonies, romantic roses, elegant irises, and the intoxicating fragrance of sweet peas and lavender. A season of abundance and extraordinary color."
   },
@@ -23,8 +23,8 @@
   {
     "id": "tropicals",
     "title": "Tropical Blooms",
-    "image": "/images/orchid.jpeg",
+    "image": "/images/bouquet/v7010.webp",
     "category": "Tropical",
-    "story": "Exotic and dramatic, our tropical flowers bring bold color and architectural form to any arrangement \u2014 from sculptural orchids and vivid agapanthus to feathery celosia and star-shaped jasmine."
+    "story": "Exotic and dramatic, our tropical flowers bring bold color and architectural form to any arrangement — from sculptural orchids and vivid agapanthus to feathery celosia and star-shaped jasmine."
   }
 ]
