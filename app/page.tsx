@@ -17,7 +17,7 @@ export default function HomePage() {
   const site = getSiteConfig();
   const collections = getCollections().slice(0, 3);
   const testimonials = getTestimonials();
-  const designs = getDesigns().filter((d) => d.image.startsWith('/images/david/'));
+  const designs = getDesigns();
 
   return (
     <>

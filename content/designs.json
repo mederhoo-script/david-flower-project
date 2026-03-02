@@ -526,5 +526,181 @@
     "bunchPrice": "$54.99",
     "description": "Amaranthus caudatus Love-lies-bleeding is one of the most dramatic and theatrical plants in the garden. Its long, drooping, rope-like tassels of tiny crimson flowers cascade down like flowing velvet ribbons. This unusual plant adds movement and dark, romantic color to late summer and autumn arrangements. Stunning as a focal point or woven between other blooms.",
     "symbolism": "Love-lies-bleeding symbolizes hopeless love and undying devotion. Its dramatic, trailing crimson flowers have made it a beloved symbol in poetry and romantic art for centuries."
+  },
+  {
+    "id": "regal-admiral",
+    "title": "Admiral Rose Box",
+    "category": "Luxury Bouquets",
+    "badge": "Premium",
+    "image": "/images/regal/img-admiral-cover.jpg",
+    "stemPrice": "$8.00",
+    "bunchPrice": "$89.99",
+    "description": "A breathtaking heart-shaped presentation of premium red roses, beautifully arranged in an elegant box. Perfect for anniversaries, Valentine's Day, and special declarations of love.",
+    "symbolism": "Red roses in a heart arrangement symbolise passionate love and devotion — the ultimate romantic gift."
+  },
+  {
+    "id": "regal-frever-red",
+    "title": "Frever Red Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": "Popular",
+    "image": "/images/regal/img-frever-red.jpg",
+    "stemPrice": "$7.50",
+    "bunchPrice": "$74.99",
+    "description": "A stunning hand-tied bouquet of vibrant red roses wrapped in elegant craft paper. Classic, bold, and utterly timeless — ideal for romantic occasions and heartfelt gestures.",
+    "symbolism": "Red roses are the universal symbol of love, passion, and deep affection."
+  },
+  {
+    "id": "regal-million-stars-bouquet",
+    "title": "Red Roses & Million Stars",
+    "category": "Luxury Bouquets",
+    "badge": "Trending",
+    "image": "/images/regal/img-red-roses-million-stars-bouquet.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$69.99",
+    "description": "A romantic pairing of rich red roses with delicate white million stars (gypsophila), creating a classic contrast of bold colour and airy texture. Wrapped in crisp white paper for a polished finish.",
+    "symbolism": "Red roses with white gypsophila represent everlasting love set against purity and innocence."
+  },
+  {
+    "id": "regal-30roses-million-stars",
+    "title": "30 Roses & Million Stars",
+    "category": "Luxury Bouquets",
+    "badge": "Premium",
+    "image": "/images/regal/img-regal-red-roses-million-stars-30roses.jpg",
+    "stemPrice": "$7.50",
+    "bunchPrice": "$119.99",
+    "description": "A grand, show-stopping bouquet of thirty premium red roses complemented by clouds of white million stars. This generous arrangement makes an unforgettable impression at any celebration.",
+    "symbolism": "Thirty roses signify 'I am deeply in love with you' — a powerful declaration for milestone moments."
+  },
+  {
+    "id": "regal-instablog",
+    "title": "Signature Red Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": "Popular",
+    "image": "/images/regal/instablog9ja.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$64.99",
+    "description": "A lush, full bouquet of premium red roses elegantly wrapped in white floral paper with a green leaf border. A signature arrangement that radiates sophistication and romance.",
+    "symbolism": "Red roses wrapped in white represent the harmony of passionate love and pure intentions."
+  },
+  {
+    "id": "regal-belleza-box",
+    "title": "Belleza Box",
+    "category": "Luxury Bouquets",
+    "badge": "New",
+    "image": "/images/regal/regal-belleza-box.jpg",
+    "stemPrice": "$9.00",
+    "bunchPrice": "$94.99",
+    "description": "An exquisite round black box filled with richly coloured roses in deep reds and warm corals, creating a luxurious gift presentation. Ideal for special occasions where presentation matters as much as the blooms.",
+    "symbolism": "A box of mixed-colour roses expresses admiration, appreciation, and heartfelt affection."
+  },
+  {
+    "id": "regal-bells",
+    "title": "Bells of Ireland Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": null,
+    "image": "/images/regal/regal-bells.jpg",
+    "stemPrice": "$6.50",
+    "bunchPrice": "$59.99",
+    "description": "A striking tall bouquet featuring Bells of Ireland alongside vibrant roses, creating a dramatic green-and-red colour palette. An eye-catching arrangement that makes a bold statement.",
+    "symbolism": "Bells of Ireland symbolise good luck and fortune, making this the perfect gift for new ventures and celebrations."
+  },
+  {
+    "id": "regal-chrysanthemums",
+    "title": "Chrysanthemum Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": null,
+    "image": "/images/regal/regal-chrysanthemums.jpg",
+    "stemPrice": "$6.00",
+    "bunchPrice": "$54.99",
+    "description": "A vibrant, full bouquet of premium chrysanthemums in warm golden tones, bringing cheerful energy and long-lasting beauty. Chrysanthemums are celebrated for their exceptional vase life and colour variety.",
+    "symbolism": "Chrysanthemums symbolise joy, longevity, and optimism — a wonderful gift to celebrate achievements."
+  },
+  {
+    "id": "regal-cool-classic",
+    "title": "Cool Classic Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": "Popular",
+    "image": "/images/regal/regal-cool-classic.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$64.99",
+    "description": "A beautifully curated cool classic arrangement featuring mixed blooms in soft purples, creamy whites, and blush pinks. Wrapped in elegant craft paper, this bouquet offers timeless sophistication.",
+    "symbolism": "Cool-toned blooms represent grace, elegance, and admiration — a refined choice for those with discerning taste."
+  },
+  {
+    "id": "regal-mixed-million-stars",
+    "title": "Mixed Roses & Million Stars",
+    "category": "Luxury Bouquets",
+    "badge": "Trending",
+    "image": "/images/regal/regal-mixed-roses-million-stars.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$69.99",
+    "description": "A captivating combination of colourful mixed roses set against a backdrop of delicate white million stars gypsophila. The varied rose colours create a joyful, celebratory feel ideal for birthdays and special occasions.",
+    "symbolism": "Mixed roses with gypsophila represent friendship, variety, and the beauty of life's many colours."
+  },
+  {
+    "id": "regal-mixed-yellow-red",
+    "title": "Yellow & Red Rose Mix",
+    "category": "Luxury Bouquets",
+    "badge": null,
+    "image": "/images/regal/regal-mixed-roses-yellow-red.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$64.99",
+    "description": "A bold, vibrant bouquet pairing warm yellow roses with deep red ones, creating a striking colour contrast full of energy and warmth. Perfect for celebrations and heartfelt congratulations.",
+    "symbolism": "Yellow and red roses together express joy mixed with passion — congratulations with a heartfelt edge."
+  },
+  {
+    "id": "regal-mon-coeur",
+    "title": "Mon Coeur Roses",
+    "category": "Luxury Bouquets",
+    "badge": "New",
+    "image": "/images/regal/regal-mon-couer-roses.jpg",
+    "stemPrice": "$8.00",
+    "bunchPrice": "$84.99",
+    "description": "An elegant round bouquet of deep burgundy and crimson roses with lush green foliage, evoking old-world romance and classic floristry. Mon Coeur — My Heart — is a tribute to timeless love.",
+    "symbolism": "Deep burgundy roses symbolise unconscious beauty and deep, enduring love."
+  },
+  {
+    "id": "regal-popular-bundled",
+    "title": "Popular Bundled Roses",
+    "category": "Luxury Bouquets",
+    "badge": "Popular",
+    "image": "/images/regal/regal-popular-bundled.jpg",
+    "stemPrice": "$6.50",
+    "bunchPrice": "$54.99",
+    "description": "A charmingly bundled arrangement of mixed red and pink roses, casually styled for a natural, just-picked feel. This popular everyday bouquet brings colour and warmth to any space.",
+    "symbolism": "Mixed pink and red roses convey affection, gratitude, and warm-hearted love."
+  },
+  {
+    "id": "regal-popular-fresh",
+    "title": "Fresh Rose Wrap",
+    "category": "Luxury Bouquets",
+    "badge": null,
+    "image": "/images/regal/regal-popular-fresh.jpg",
+    "stemPrice": "$6.00",
+    "bunchPrice": "$49.99",
+    "description": "A fresh, garden-inspired hand-tied bouquet featuring a colourful mix of roses in shades of pink, red, and white. Wrapped simply to show off the natural beauty of the blooms.",
+    "symbolism": "A fresh mixed-rose bouquet celebrates all forms of love and heartfelt emotion."
+  },
+  {
+    "id": "regal-red-roses-one",
+    "title": "Classic Red Rose Bouquet",
+    "category": "Luxury Bouquets",
+    "badge": "Popular",
+    "image": "/images/regal/regal-red-roses-bouquet-one.jpg",
+    "stemPrice": "$7.00",
+    "bunchPrice": "$64.99",
+    "description": "A quintessential bouquet of premium red roses elegantly wrapped in white tissue and craft paper. Clean, classic, and always impressive — this is the bouquet that never goes out of style.",
+    "symbolism": "Red roses are the universal language of love, passion, and deep romantic feeling."
+  },
+  {
+    "id": "regal-red-ferrero",
+    "title": "Red Roses & Ferrero Gift",
+    "category": "Luxury Bouquets",
+    "badge": "Premium",
+    "image": "/images/regal/regal-red-roses-ferrero.jpg",
+    "stemPrice": "$8.50",
+    "bunchPrice": "$99.99",
+    "description": "The ultimate romantic gift combination: a lush bouquet of premium red roses paired with a box of Ferrero Rocher chocolates. Indulgent, luxurious, and guaranteed to delight.",
+    "symbolism": "Roses and chocolates together are the timeless symbol of romance, indulgence, and thoughtful affection."
   }
 ]
