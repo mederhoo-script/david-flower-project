@@ -41,7 +41,10 @@ export default function FlowerCard({ design, onQuickView }: FlowerCardProps) {
   return (
     <article className="group flex flex-col bg-white overflow-hidden">
       {/* ── IMAGE AREA ─────────────────────────────────────────────────────── */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-beige">
+      <div
+        className={`relative aspect-[3/4] overflow-hidden bg-beige${onQuickView ? ' cursor-pointer' : ''}`}
+        onClick={onQuickView ? () => onQuickView() : undefined}
+      >
         {!imgError ? (
           <Image
             src={design.image}
@@ -70,7 +73,7 @@ export default function FlowerCard({ design, onQuickView }: FlowerCardProps) {
         {/* Quick View eye icon button — top right, appears on hover */}
         {onQuickView && (
           <button
-            onClick={e => { e.preventDefault(); onQuickView(); }}
+            onClick={e => { e.stopPropagation(); onQuickView(); }}
             aria-label={`Quick view ${design.title}`}
             className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center bg-white/90 border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-gold hover:text-white hover:border-gold"
           >
@@ -85,7 +88,7 @@ export default function FlowerCard({ design, onQuickView }: FlowerCardProps) {
         {onQuickView && (
           <div className="absolute bottom-0 left-0 right-0 z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
             <button
-              onClick={e => { e.preventDefault(); onQuickView(); }}
+              onClick={e => { e.stopPropagation(); onQuickView(); }}
               className="flex items-center justify-center gap-1.5 w-full font-inter text-[10px] tracking-[0.25em] uppercase bg-white/95 text-brand-black py-3 hover:bg-gold hover:text-white transition-colors duration-200"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
