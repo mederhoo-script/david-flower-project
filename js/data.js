@@ -59,7 +59,7 @@ const SITE = {
     "subtitle": "Same-day delivery available. Orders placed by noon.",
     "whatsappMessage": "Hello, I would like to place a flower order with David Flower Project.",
     "email": "hello@davidflowerproject.com",
-    "location": "Ibadan, Nigeria"
+    "location": "Kenya"
   }
 };
 
