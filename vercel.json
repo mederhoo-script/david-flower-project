@@ -1,5 +1,9 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next"
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/collections", "destination": "/collections.html" },
+    { "source": "/process",     "destination": "/process.html" },
+    { "source": "/contact",     "destination": "/contact.html" },
+    { "source": "/about",       "destination": "/about.html" }
+  ]
 }
