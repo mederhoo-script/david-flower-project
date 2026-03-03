@@ -27,6 +27,34 @@ export default function HomePage() {
       {/* Marquee Strip */}
       <MarqueeStrip />
 
+      {/* Regal Collection Gallery */}
+      <section className="section-padding bg-beige">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="font-inter text-xs tracking-[0.3em] uppercase text-gold mb-4">Regal Collection</p>
+            <h2 className="font-playfair text-3xl md:text-4xl text-brand-black">Luxury Bouquets</h2>
+            <div className="gold-divider" />
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {designs.filter(d => d.id.startsWith('regal')).map((design, i) => (
+              <Link key={design.id} href="/collections" className="group block">
+                <div className="relative aspect-[3/4] overflow-hidden bg-white">
+                  <Image
+                    src={design.image}
+                    alt={design.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    priority={i < 4}
+                  />
+                </div>
+                <p className="font-playfair text-sm text-brand-black mt-2 truncate">{design.title}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Trending Section */}
       <section className="section-padding bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
