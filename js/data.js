@@ -729,17 +729,17 @@ const COLLECTIONS = [
 const TESTIMONIALS = [
   {
     "name": "Amara K.",
-    "title": "Wedding Planner, Nairobi",
+    "title": "Wedding Planner",
     "quote": "The peonies and roses from David Flower Project made our venue absolutely breathtaking. Fresh, lush, and delivered on time \u2014 exactly what we needed for the perfect wedding."
   },
   {
     "name": "Wanjiku M.",
-    "title": "Bride, Mombasa",
+    "title": "Bride",
     "quote": "My bridal bouquet of garden roses and sweet peas was beyond beautiful. Every bloom was perfect. I couldn't have asked for more on my special day."
   },
   {
     "name": "David O.",
-    "title": "Event Decorator, London",
+    "title": "Event Decorator",
     "quote": "The quality and variety in their catalog is unmatched. From exotic orchids to seasonal dahlias, every flower arrives fresh and beautifully conditioned. Highly recommended."
   }
 ];
