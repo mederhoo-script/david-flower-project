@@ -175,8 +175,8 @@ function initTrending(containerId) {
     a.className = 'flex-shrink-0 w-[40vw] md:w-[22vw] px-1.5 block group no-drag';
     a.draggable = false;
     a.innerHTML = `
-      <div class="h-[220px] md:h-[300px] overflow-hidden bg-[#E8F0E8]">
-        <img src="${img}" alt="${d.title}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 no-drag" loading="lazy">
+      <div class="aspect-[3/4] overflow-hidden bg-[#E8F0E8] rounded-2xl">
+        <img src="${img}" alt="${d.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 no-drag" loading="lazy">
       </div>
       <p class="font-playfair text-sm font-semibold text-[#0A1A0A] mt-2 truncate px-0.5">${d.title}</p>`;
     track.appendChild(a);
