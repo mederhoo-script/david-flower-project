@@ -59,3 +59,11 @@
 
 /* Prevent img drag in carousels */
 .no-drag { -webkit-user-drag: none; user-select: none; }
+
+/* Line clamp for product card description */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

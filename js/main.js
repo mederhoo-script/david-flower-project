@@ -19,9 +19,9 @@ function initNavbar() {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
-        navbar.classList.add('bg-[#0A1A0A]/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('shadow-lg');
       } else {
-        navbar.classList.remove('bg-[#0A1A0A]/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('shadow-lg');
       }
     }, { passive: true });
   }
@@ -175,8 +175,8 @@ function initTrending(containerId) {
     a.className = 'flex-shrink-0 w-[40vw] md:w-[22vw] px-1.5 block group no-drag';
     a.draggable = false;
     a.innerHTML = `
-      <div class="h-[220px] md:h-[300px] overflow-hidden bg-[#E8F0E8]">
-        <img src="${img}" alt="${d.title}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 no-drag" loading="lazy">
+      <div class="aspect-[3/4] overflow-hidden bg-[#E8F0E8] rounded-2xl">
+        <img src="${img}" alt="${d.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 no-drag" loading="lazy">
       </div>
       <p class="font-playfair text-sm font-semibold text-[#0A1A0A] mt-2 truncate px-0.5">${d.title}</p>`;
     track.appendChild(a);
@@ -232,15 +232,17 @@ function renderFlowerGrid(containerId, designs, qv = true) {
           Quick View
         </button>
       </div>` : '';
+    const desc = d.description ? d.description.split('.')[0] + '.' : '';
     return `
-      <article class="flower-card group flex flex-col bg-white overflow-hidden">
-        <div class="relative aspect-[3/4] overflow-hidden bg-[#E8F0E8] cursor-pointer" onclick="openQV('${d.id}')">
+      <article class="flower-card group flex flex-col bg-white overflow-hidden rounded-xl shadow-sm">
+        <div class="relative aspect-[3/4] overflow-hidden bg-[#E8F0E8] cursor-pointer rounded-t-xl" onclick="openQV('${d.id}')">
           <img src="${img}" alt="${d.title}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="${i<8?'eager':'lazy'}">
           ${badge}${qvBtns}
         </div>
-        <div class="pt-3 pb-4 px-1">
+        <div class="pt-3 pb-4 px-3">
           <p class="font-inter text-[10px] tracking-widest uppercase text-[#00cc00] mb-1">${d.category}</p>
-          <h3 class="font-playfair text-base font-medium text-[#0A1A0A] leading-snug cursor-pointer hover:text-[#00cc00] transition-colors" onclick="openQV('${d.id}')">${d.title}</h3>
+          <h3 class="font-playfair text-base font-medium text-[#0A1A0A] leading-snug cursor-pointer hover:text-[#00cc00] transition-colors mb-2" onclick="openQV('${d.id}')">${d.title}</h3>
+          ${desc ? `<p class="font-inter text-xs text-[#1A2E1A]/60 leading-relaxed line-clamp-2">${desc}</p>` : ''}
         </div>
       </article>`;
   }).join('');
