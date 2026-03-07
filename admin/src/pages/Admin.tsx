@@ -486,6 +486,7 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                   <TableHead className="font-inter">Title</TableHead>
                   <TableHead className="hidden sm:table-cell font-inter">Category</TableHead>
                   <TableHead className="hidden md:table-cell font-inter">Stem / Bunch</TableHead>
+                  <TableHead className="hidden sm:table-cell font-inter">Badges</TableHead>
                   <TableHead className="text-right font-inter">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -507,12 +508,41 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1">
                         {f.description}
                       </p>
+                      {f.symbolism && (
+                        <p className="font-inter text-xs text-muted-foreground/70 mt-0.5 line-clamp-1 italic">
+                          🌿 {f.symbolism}
+                        </p>
+                      )}
                     </TableCell>
                     <TableCell className="hidden sm:table-cell font-inter text-xs text-muted-foreground">
                       {f.category}
                     </TableCell>
                     <TableCell className="hidden md:table-cell font-inter text-sm">
                       {f.stemPrice} / {f.bunchPrice}
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">
+                      <div className="flex flex-wrap gap-1">
+                        {f.badge && (
+                          <Badge variant="secondary" className="font-inter text-xs">
+                            {f.badge}
+                          </Badge>
+                        )}
+                        {f.featured && (
+                          <Badge variant="outline" className="font-inter text-xs">
+                            Featured
+                          </Badge>
+                        )}
+                        {f.isNew && (
+                          <Badge className="font-inter text-xs bg-emerald-500 text-white border-0">
+                            New
+                          </Badge>
+                        )}
+                        {f.isTrending && (
+                          <Badge className="font-inter text-xs bg-amber-500 text-white border-0">
+                            Trending
+                          </Badge>
+                        )}
+                      </div>
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
