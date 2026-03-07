@@ -22,6 +22,9 @@ import {
   updateHeroSlide,
   deleteHeroSlide,
   uploadHeroSlideImage,
+  hideStaticHeroSlide,
+  restoreStaticHeroSlide,
+  useHiddenHeroSlideIndexes,
   type HeroSlide,
 } from "@/lib/heroSlidesService";
 import {
@@ -1528,6 +1531,15 @@ function TestimonialsSection() {
 // ── Hero Slides section ───────────────────────────────────────────────────────
 const EMPTY_BG_SLOT: ImageSlotState = { mode: "url", url: "", file: null };
 
+/** Static hero slides that ship with the storefront (mirrors main.js HERO_SLIDES). */
+const STATIC_HERO_SLIDES = [
+  { bg: "images/regal/regal-mixed-roses-million-stars.jpg", tag: "Fresh Arrivals",    title: "Nature's Finest Blooms",   subtitle: "Curated flowers from seasonal gardens and exotic tropics",           cta: "collections.html" },
+  { bg: "images/regal/regal-mixed-roses-yellow-red.jpg",    tag: "Most Popular",      title: "Garden Romance",            subtitle: "Lush roses and classic blooms — nature's most beloved arrangements", cta: "collections.html" },
+  { bg: "images/regal/regal-red-roses-ferrero.jpg",         tag: "Special Occasions", title: "Rare & Beautiful",          subtitle: "Stunning arrangements perfect for weddings, gifts & celebrations",    cta: "contact.html"      },
+  { bg: "images/regal/regal-chrysanthemums.jpg",            tag: "Spring Collection", title: "First Blooms of Spring",    subtitle: "Elegant seasonal flowers heralding the arrival of a new season",    cta: "collections.html" },
+  { bg: "images/regal/regal-popular-bundled.jpg",           tag: "Seasonal Picks",    title: "Rich & Vibrant",            subtitle: "Bold colours and warm arrangements to brighten any space",           cta: "collections.html" },
+] as const;
+
 function HeroSlidesSection() {
   const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [loading, setLoading] = useState(true);
@@ -1536,6 +1548,8 @@ function HeroSlidesSection() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [editItem, setEditItem] = useState<HeroSlide | null>(null);
+  const { hiddenIndexes, loading: hiddenLoading, refetch: refetchHidden } = useHiddenHeroSlideIndexes();
+  const [hidingIndex, setHidingIndex] = useState<number | null>(null);
 
   const [bgSlot, setBgSlot] = useState<ImageSlotState>({ ...EMPTY_BG_SLOT });
 
@@ -1560,6 +1574,32 @@ function HeroSlidesSection() {
     setBgSlot({ mode: "url", url: s.bg, file: null });
     setForm({ tag: s.tag, title: s.title, subtitle: s.subtitle, cta: s.cta, order: s.order });
     setError(null); setSuccess(false);
+  }
+
+  /** Pre-fill the add form with a static slide's data so the admin can customise and save it to DB. */
+  function startOverride(index: number) {
+    const s = STATIC_HERO_SLIDES[index];
+    setEditItem(null);
+    setBgSlot({ mode: "url", url: s.bg, file: null });
+    setForm({ tag: s.tag, title: s.title, subtitle: s.subtitle, cta: s.cta, order: index });
+    setError(null); setSuccess(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  async function handleToggleStaticSlide(index: number) {
+    setHidingIndex(index);
+    try {
+      if (hiddenIndexes.includes(index)) {
+        await restoreStaticHeroSlide(index);
+      } else {
+        await hideStaticHeroSlide(index);
+      }
+      await refetchHidden();
+    } catch (e) {
+      alert((e as Error).message);
+    } finally {
+      setHidingIndex(null);
+    }
   }
 
   function cancelEdit() {
@@ -1613,6 +1653,69 @@ function HeroSlidesSection() {
       {success && <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-700 font-inter">Saved successfully!</div>}
       {error && <div className="rounded-lg bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive font-inter">{error}</div>}
 
+      {/* Static (default) slides list */}
+      <Card className="border border-border">
+        <CardHeader className="pb-3">
+          <CardTitle className="font-playfair text-base">Default Slides</CardTitle>
+          <p className="text-xs text-muted-foreground font-inter mt-0.5">
+            These slides are built into the storefront. Hide individual slides or click <strong>Override</strong> to customise one and save it to the DB.
+            {slides.length > 0 && <span className="ml-1 text-amber-600">(DB slides are currently active — default slides are not shown on the storefront.)</span>}
+          </p>
+        </CardHeader>
+        <CardContent className="p-0">
+          {hiddenLoading ? (
+            <div className="flex items-center justify-center py-8"><div className="h-5 w-5 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-16 font-inter">#</TableHead>
+                  <TableHead className="font-inter">Title</TableHead>
+                  <TableHead className="hidden sm:table-cell font-inter">Tag</TableHead>
+                  <TableHead className="text-right font-inter">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {STATIC_HERO_SLIDES.map((s, i) => {
+                  const isHidden = hiddenIndexes.includes(i);
+                  const isBusy = hidingIndex === i;
+                  return (
+                    <TableRow key={i} className={isHidden ? "opacity-50" : ""}>
+                      <TableCell className="font-inter text-sm text-muted-foreground">{i + 1}</TableCell>
+                      <TableCell>
+                        <p className="font-inter text-sm font-medium">{s.title}</p>
+                        <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1">{s.subtitle}</p>
+                        {isHidden && <span className="inline-block mt-0.5 text-[10px] font-inter uppercase tracking-widest text-amber-600 font-medium">Hidden</span>}
+                      </TableCell>
+                      <TableCell className="hidden sm:table-cell font-inter text-xs text-muted-foreground">{s.tag}</TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex items-center justify-end gap-2">
+                          <button
+                            onClick={() => handleToggleStaticSlide(i)}
+                            disabled={isBusy}
+                            title={isHidden ? "Show slide" : "Hide slide"}
+                            className="text-muted-foreground hover:text-foreground transition-colors disabled:opacity-40"
+                          >
+                            <Icon path={isHidden ? ICONS.eye : ICONS.eyeOff} className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => startOverride(i)}
+                            title="Override: customise this slide and save to DB"
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            <Icon path={ICONS.edit} className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+
       {/* Form */}
       <Card className="border border-border">
         <CardHeader className="pb-3">
@@ -1664,7 +1767,7 @@ function HeroSlidesSection() {
         </CardContent>
       </Card>
 
-      {/* List */}
+      {/* DB slides list */}
       <Card className="border border-border">
         <CardHeader className="pb-3 flex flex-row items-center justify-between">
           <CardTitle className="font-playfair text-base">Saved Slides ({loading ? "…" : slides.length})</CardTitle>

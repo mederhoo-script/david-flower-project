@@ -274,6 +274,20 @@
       } catch (e) {
         console.warn('[Site] Hero slides unavailable:', e.message);
       }
+      // When no DB slides exist, filter out static slides hidden via the admin panel
+      if (!heroSlides) {
+        try {
+          const hiddenSnap = await getDoc(doc(db, 'config', 'hiddenHeroSlides'));
+          if (hiddenSnap.exists()) {
+            const hiddenIndexes = hiddenSnap.data().hiddenIndexes || [];
+            if (hiddenIndexes.length > 0) {
+              heroSlides = HERO_SLIDES.filter((_, i) => !hiddenIndexes.includes(i));
+            }
+          }
+        } catch (e) {
+          console.warn('[Site] Hidden hero slides config unavailable:', e.message);
+        }
+      }
     }
     initHero(heroSlides);
 
