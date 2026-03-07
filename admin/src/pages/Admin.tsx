@@ -273,7 +273,7 @@ function DashboardSection() {
                     {f.badge}
                   </Badge>
                 )}
-                <span className="font-inter text-sm text-muted-foreground">{f.stemPrice}/stem</span>
+                <span className="font-inter text-sm text-muted-foreground">{f.stemPrice ? `${f.stemPrice}/stem` : "—"}</span>
               </div>
             ))}
           </div>
@@ -449,7 +449,9 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       </span>
                     </TableCell>
                     <TableCell className="hidden md:table-cell font-inter text-sm">
-                      {displayF.stemPrice} / {displayF.bunchPrice}
+                      {(displayF.stemPrice || displayF.bunchPrice)
+                        ? `${displayF.stemPrice ?? "—"} / ${displayF.bunchPrice ?? "—"}`
+                        : "—"}
                     </TableCell>
                     <TableCell>
                       <div className="flex flex-wrap gap-1">
@@ -571,7 +573,9 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       {f.category}
                     </TableCell>
                     <TableCell className="hidden md:table-cell font-inter text-sm">
-                      {f.stemPrice} / {f.bunchPrice}
+                      {(f.stemPrice || f.bunchPrice)
+                        ? `${f.stemPrice ?? "—"} / ${f.bunchPrice ?? "—"}`
+                        : "—"}
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">
                       <div className="flex flex-wrap gap-1">
@@ -925,8 +929,8 @@ function AddFlowerSection({
         title: editFlower.title,
         description: editFlower.description,
         symbolism: editFlower.symbolism ?? "",
-        stemPrice: editFlower.stemPrice,
-        bunchPrice: editFlower.bunchPrice,
+        stemPrice: editFlower.stemPrice ?? "",
+        bunchPrice: editFlower.bunchPrice ?? "",
         stemPriceValue: String(editFlower.stemPriceValue ?? ""),
         bunchPriceValue: String(editFlower.bunchPriceValue ?? ""),
         category: editFlower.category,
@@ -999,8 +1003,8 @@ function AddFlowerSection({
         title: form.title.trim(),
         description: form.description.trim(),
         symbolism: form.symbolism.trim() || undefined,
-        stemPrice: form.stemPrice.trim(),
-        bunchPrice: form.bunchPrice.trim(),
+        stemPrice: form.stemPrice.trim() || undefined,
+        bunchPrice: form.bunchPrice.trim() || undefined,
         stemPriceValue: form.stemPriceValue ? Number(form.stemPriceValue) : undefined,
         bunchPriceValue: form.bunchPriceValue ? Number(form.bunchPriceValue) : undefined,
         category: form.category,
@@ -1124,11 +1128,10 @@ function AddFlowerSection({
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="af-stemPrice" className="font-inter text-sm mb-1.5 block">
-                  Stem Price <span className="text-destructive">*</span>
+                  Stem Price
                 </Label>
                 <Input
                   id="af-stemPrice"
-                  required
                   value={form.stemPrice}
                   onChange={(e) => handleChange("stemPrice", e.target.value)}
                   placeholder="$5.50"
@@ -1137,11 +1140,10 @@ function AddFlowerSection({
               </div>
               <div>
                 <Label htmlFor="af-bunchPrice" className="font-inter text-sm mb-1.5 block">
-                  Bunch Price <span className="text-destructive">*</span>
+                  Bunch Price
                 </Label>
                 <Input
                   id="af-bunchPrice"
-                  required
                   value={form.bunchPrice}
                   onChange={(e) => handleChange("bunchPrice", e.target.value)}
                   placeholder="$48.99"

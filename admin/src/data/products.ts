@@ -26,8 +26,8 @@ export interface FlowerProduct {
   badge?: "New" | "Popular" | "Trending" | "Fragrant" | "Premium" | null;
   image: string;
   images?: { front?: string; left?: string; right?: string; back?: string };
-  stemPrice: string;
-  bunchPrice: string;
+  stemPrice?: string;
+  bunchPrice?: string;
   stemPriceValue?: number;
   bunchPriceValue?: number;
   colors?: string[];
