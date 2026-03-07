@@ -9,3 +9,4 @@ admin/node_modules/
 admin/dist/
 .env
 admin/.env
+admin/*.tsbuildinfo
