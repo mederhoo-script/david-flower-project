@@ -764,8 +764,8 @@ function ImageSlot({
       {mode === "url" && (
         <Input
           id={id}
-          type="url"
-          placeholder="https://example.com/image.jpg"
+          type="text"
+          placeholder="/images/david/fiorella.jpeg or https://…"
           value={url}
           onChange={(e) => onUrlChange(e.target.value)}
           className="font-inter text-sm"
@@ -949,11 +949,15 @@ function AddFlowerSection({
       const rightUrl = await resolveImage("right");
       const backUrl = await resolveImage("back");
 
-      if (!frontUrl) {
-        setSaveError("Front image is required.");
+      // For new flowers the front image is required.
+      // For edits it is optional: fall back to the existing image so admins can
+      // update text fields without re-entering the image URL.
+      if (!frontUrl && !editFlower) {
+        setSaveError("Front image is required for new flowers.");
         setSaving(false);
         return;
       }
+      const resolvedFrontUrl = frontUrl || editFlower?.image || "";
 
       const data: Omit<FlowerProduct, "id"> = {
         title: form.title.trim(),
@@ -965,9 +969,9 @@ function AddFlowerSection({
         bunchPriceValue: form.bunchPriceValue ? Number(form.bunchPriceValue) : undefined,
         category: form.category,
         badge: (form.badge as "New" | "Popular" | "Trending") || undefined,
-        image: frontUrl,
+        image: resolvedFrontUrl,
         images: {
-          front: frontUrl,
+          front: resolvedFrontUrl,
           ...(leftUrl ? { left: leftUrl } : {}),
           ...(rightUrl ? { right: rightUrl } : {}),
           ...(backUrl ? { back: backUrl } : {}),
@@ -1207,14 +1211,17 @@ function AddFlowerSection({
         <Card className="border border-border">
           <CardHeader className="pb-3">
             <CardTitle className="font-playfair text-base">Images</CardTitle>
+            <p className="text-xs text-muted-foreground font-inter mt-1">
+              Enter a local path (e.g. <code className="bg-muted px-1 rounded">/images/david/fiorella.jpeg</code>),
+              a full URL, or upload a file. All views are optional.
+            </p>
           </CardHeader>
           <CardContent className="space-y-5">
-            {(["front", "left", "right", "back"] as ImageView[]).map((view, i) => (
+            {(["front", "left", "right", "back"] as ImageView[]).map((view) => (
               <ImageSlot
                 key={view}
                 id={`af-img-${view}`}
                 label={`${view.charAt(0).toUpperCase() + view.slice(1)} View`}
-                required={i === 0}
                 mode={slots[view].mode}
                 url={slots[view].url}
                 file={slots[view].file}
