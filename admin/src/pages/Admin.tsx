@@ -10,6 +10,20 @@ import {
   type BrandConfig,
 } from "@/lib/brandConfigService";
 import {
+  getTestimonials,
+  addTestimonial,
+  updateTestimonial,
+  deleteTestimonial,
+  type Testimonial,
+} from "@/lib/testimonialsService";
+import {
+  getHeroSlides,
+  addHeroSlide,
+  updateHeroSlide,
+  deleteHeroSlide,
+  type HeroSlide,
+} from "@/lib/heroSlidesService";
+import {
   useHiddenProductIds,
   hideProduct,
   restoreProduct,
@@ -85,12 +99,14 @@ const ICONS = {
 };
 
 // ── Sidebar navigation ────────────────────────────────────────────────────────
-type Section = "dashboard" | "flowers" | "add-flower" | "config";
+type Section = "dashboard" | "flowers" | "add-flower" | "config" | "testimonials" | "hero-slides";
 
 const NAV_ITEMS: { id: Section; label: string; iconPath: string }[] = [
   { id: "dashboard", label: "Dashboard", iconPath: ICONS.dashboard },
   { id: "flowers", label: "Flowers", iconPath: ICONS.products },
   { id: "add-flower", label: "Add Flower", iconPath: ICONS.plus },
+  { id: "testimonials", label: "Testimonials", iconPath: ICONS.star },
+  { id: "hero-slides", label: "Hero Slides", iconPath: ICONS.trending },
   { id: "config", label: "Brand Config", iconPath: ICONS.config },
 ];
 
@@ -1295,6 +1311,302 @@ function AddFlowerSection({
   );
 }
 
+// ── Testimonials section ──────────────────────────────────────────────────────
+function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [editItem, setEditItem] = useState<Testimonial | null>(null);
+
+  const emptyForm = () => ({ name: "", title: "", quote: "", order: testimonials.length });
+  const [form, setForm] = useState(emptyForm);
+
+  const fetchAll = useCallback(async () => {
+    setLoading(true);
+    try {
+      setTestimonials(await getTestimonials());
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  function startEdit(t: Testimonial) {
+    setEditItem(t);
+    setForm({ name: t.name, title: t.title, quote: t.quote, order: t.order });
+    setError(null); setSuccess(false);
+  }
+
+  function cancelEdit() { setEditItem(null); setForm(emptyForm()); }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSaving(true); setError(null); setSuccess(false);
+    try {
+      const data = { name: form.name.trim(), title: form.title.trim(), quote: form.quote.trim(), order: Number(form.order) };
+      if (editItem) { await updateTestimonial(editItem.id, data); } else { await addTestimonial(data); }
+      setSuccess(true);
+      cancelEdit();
+      await fetchAll();
+    } catch (e) { setError((e as Error).message); } finally { setSaving(false); }
+  }
+
+  async function handleDelete(id: string, name: string) {
+    if (!window.confirm(`Delete testimonial by "${name}"?`)) return;
+    try { await deleteTestimonial(id); await fetchAll(); } catch (e) { alert((e as Error).message); }
+  }
+
+  return (
+    <div className="space-y-6 max-w-2xl">
+      <div>
+        <h2 className="font-playfair text-3xl font-semibold mb-1">Testimonials</h2>
+        <p className="text-sm text-muted-foreground font-inter">
+          Manage customer testimonials displayed on the homepage. DB values override static defaults.
+        </p>
+      </div>
+
+      {success && <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-700 font-inter">Saved successfully!</div>}
+      {error && <div className="rounded-lg bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive font-inter">{error}</div>}
+
+      {/* Form */}
+      <Card className="border border-border">
+        <CardHeader className="pb-3">
+          <CardTitle className="font-playfair text-base">{editItem ? "Edit Testimonial" : "Add Testimonial"}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="font-inter text-sm mb-1.5 block">Customer Name <span className="text-destructive">*</span></Label>
+                <Input required value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} placeholder="Amara K." className="font-inter" />
+              </div>
+              <div>
+                <Label className="font-inter text-sm mb-1.5 block">Role / Title <span className="text-destructive">*</span></Label>
+                <Input required value={form.title} onChange={e => setForm(p => ({...p, title: e.target.value}))} placeholder="Wedding Planner" className="font-inter" />
+              </div>
+            </div>
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Quote <span className="text-destructive">*</span></Label>
+              <Textarea required value={form.quote} onChange={e => setForm(p => ({...p, quote: e.target.value}))} rows={3} placeholder="Their flowers made our venue breathtaking…" className="font-inter text-sm" />
+            </div>
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Display Order</Label>
+              <Input type="number" value={form.order} onChange={e => setForm(p => ({...p, order: Number(e.target.value)}))} className="font-inter w-24" />
+            </div>
+            <div className="flex items-center gap-3">
+              <Button type="submit" disabled={saving} className="font-inter tracking-[0.05em] uppercase text-xs">
+                {saving ? "Saving…" : editItem ? "Save Changes" : "Add Testimonial"}
+              </Button>
+              {editItem && <Button type="button" variant="outline" onClick={cancelEdit} className="font-inter text-xs">Cancel</Button>}
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+
+      {/* List */}
+      <Card className="border border-border">
+        <CardHeader className="pb-3 flex flex-row items-center justify-between">
+          <CardTitle className="font-playfair text-base">Saved Testimonials ({loading ? "…" : testimonials.length})</CardTitle>
+          <Button variant="outline" size="sm" onClick={fetchAll} className="font-inter text-xs">Refresh</Button>
+        </CardHeader>
+        <CardContent className="p-0">
+          {loading && <div className="flex items-center justify-center py-12"><div className="h-6 w-6 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>}
+          {!loading && testimonials.length === 0 && <p className="p-6 text-sm text-muted-foreground font-inter text-center">No testimonials saved yet. Add one above.</p>}
+          {!loading && testimonials.length > 0 && (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="font-inter">Name</TableHead>
+                  <TableHead className="hidden sm:table-cell font-inter">Title</TableHead>
+                  <TableHead className="hidden md:table-cell font-inter">Order</TableHead>
+                  <TableHead className="text-right font-inter">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {testimonials.map(t => (
+                  <TableRow key={t.id}>
+                    <TableCell>
+                      <p className="font-inter text-sm font-medium">{t.name}</p>
+                      <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1 italic">&ldquo;{t.quote}&rdquo;</p>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell font-inter text-sm text-muted-foreground">{t.title}</TableCell>
+                    <TableCell className="hidden md:table-cell font-inter text-sm">{t.order}</TableCell>
+                    <TableCell className="text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button onClick={() => startEdit(t)} title="Edit" className="text-muted-foreground hover:text-foreground transition-colors"><Icon path={ICONS.edit} className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(t.id, t.name)} title="Delete" className="text-muted-foreground hover:text-destructive transition-colors"><Icon path={ICONS.trash} className="w-4 h-4" /></button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ── Hero Slides section ───────────────────────────────────────────────────────
+function HeroSlidesSection() {
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [editItem, setEditItem] = useState<HeroSlide | null>(null);
+
+  const emptyForm = () => ({ bg: "", tag: "", title: "", subtitle: "", cta: "collections.html", order: slides.length });
+  const [form, setForm] = useState(emptyForm);
+
+  const fetchAll = useCallback(async () => {
+    setLoading(true);
+    try {
+      setSlides(await getHeroSlides());
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchAll(); }, [fetchAll]);
+
+  function startEdit(s: HeroSlide) {
+    setEditItem(s);
+    setForm({ bg: s.bg, tag: s.tag, title: s.title, subtitle: s.subtitle, cta: s.cta, order: s.order });
+    setError(null); setSuccess(false);
+  }
+
+  function cancelEdit() { setEditItem(null); setForm(emptyForm()); }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSaving(true); setError(null); setSuccess(false);
+    try {
+      const data = { bg: form.bg.trim(), tag: form.tag.trim(), title: form.title.trim(), subtitle: form.subtitle.trim(), cta: form.cta.trim(), order: Number(form.order) };
+      if (editItem) { await updateHeroSlide(editItem.id, data); } else { await addHeroSlide(data); }
+      setSuccess(true);
+      cancelEdit();
+      await fetchAll();
+    } catch (e) { setError((e as Error).message); } finally { setSaving(false); }
+  }
+
+  async function handleDelete(id: string, title: string) {
+    if (!window.confirm(`Delete slide "${title}"?`)) return;
+    try { await deleteHeroSlide(id); await fetchAll(); } catch (e) { alert((e as Error).message); }
+  }
+
+  return (
+    <div className="space-y-6 max-w-2xl">
+      <div>
+        <h2 className="font-playfair text-3xl font-semibold mb-1">Hero Slides</h2>
+        <p className="text-sm text-muted-foreground font-inter">
+          Manage homepage carousel slides. DB values override static defaults on the storefront.
+        </p>
+      </div>
+
+      {success && <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-700 font-inter">Saved successfully!</div>}
+      {error && <div className="rounded-lg bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive font-inter">{error}</div>}
+
+      {/* Form */}
+      <Card className="border border-border">
+        <CardHeader className="pb-3">
+          <CardTitle className="font-playfair text-base">{editItem ? "Edit Slide" : "Add Slide"}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Background Image URL <span className="text-destructive">*</span></Label>
+              <Input required value={form.bg} onChange={e => setForm(p => ({...p, bg: e.target.value}))} placeholder="images/regal/regal-roses.jpg" className="font-inter" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="font-inter text-sm mb-1.5 block">Tag Label <span className="text-destructive">*</span></Label>
+                <Input required value={form.tag} onChange={e => setForm(p => ({...p, tag: e.target.value}))} placeholder="Fresh Arrivals" className="font-inter" />
+              </div>
+              <div>
+                <Label className="font-inter text-sm mb-1.5 block">CTA URL <span className="text-destructive">*</span></Label>
+                <Input required value={form.cta} onChange={e => setForm(p => ({...p, cta: e.target.value}))} placeholder="collections.html" className="font-inter" />
+              </div>
+            </div>
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Slide Title <span className="text-destructive">*</span></Label>
+              <Input required value={form.title} onChange={e => setForm(p => ({...p, title: e.target.value}))} placeholder="Nature's Finest Blooms" className="font-inter" />
+            </div>
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Subtitle</Label>
+              <Input value={form.subtitle} onChange={e => setForm(p => ({...p, subtitle: e.target.value}))} placeholder="Fresh seasonal flowers delivered to your door" className="font-inter" />
+            </div>
+            <div>
+              <Label className="font-inter text-sm mb-1.5 block">Display Order</Label>
+              <Input type="number" value={form.order} onChange={e => setForm(p => ({...p, order: Number(e.target.value)}))} className="font-inter w-24" />
+            </div>
+            <div className="flex items-center gap-3">
+              <Button type="submit" disabled={saving} className="font-inter tracking-[0.05em] uppercase text-xs">
+                {saving ? "Saving…" : editItem ? "Save Changes" : "Add Slide"}
+              </Button>
+              {editItem && <Button type="button" variant="outline" onClick={cancelEdit} className="font-inter text-xs">Cancel</Button>}
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+
+      {/* List */}
+      <Card className="border border-border">
+        <CardHeader className="pb-3 flex flex-row items-center justify-between">
+          <CardTitle className="font-playfair text-base">Saved Slides ({loading ? "…" : slides.length})</CardTitle>
+          <Button variant="outline" size="sm" onClick={fetchAll} className="font-inter text-xs">Refresh</Button>
+        </CardHeader>
+        <CardContent className="p-0">
+          {loading && <div className="flex items-center justify-center py-12"><div className="h-6 w-6 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>}
+          {!loading && slides.length === 0 && <p className="p-6 text-sm text-muted-foreground font-inter text-center">No slides saved yet. Add one above to override the static hero.</p>}
+          {!loading && slides.length > 0 && (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-16 font-inter">Img</TableHead>
+                  <TableHead className="font-inter">Title</TableHead>
+                  <TableHead className="hidden sm:table-cell font-inter">Tag</TableHead>
+                  <TableHead className="hidden md:table-cell font-inter">Order</TableHead>
+                  <TableHead className="text-right font-inter">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {slides.map(s => (
+                  <TableRow key={s.id}>
+                    <TableCell>
+                      <img src={s.bg} alt={s.title} className="w-10 h-10 object-cover rounded-md bg-muted" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-inter text-sm font-medium">{s.title}</p>
+                      <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1">{s.subtitle}</p>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell font-inter text-xs text-muted-foreground">{s.tag}</TableCell>
+                    <TableCell className="hidden md:table-cell font-inter text-sm">{s.order}</TableCell>
+                    <TableCell className="text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button onClick={() => startEdit(s)} title="Edit" className="text-muted-foreground hover:text-foreground transition-colors"><Icon path={ICONS.edit} className="w-4 h-4" /></button>
+                        <button onClick={() => handleDelete(s.id, s.title)} title="Delete" className="text-muted-foreground hover:text-destructive transition-colors"><Icon path={ICONS.trash} className="w-4 h-4" /></button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
 // ── Brand Config section ──────────────────────────────────────────────────────
 function BrandConfigSection() {
   const [config, setConfig] = useState<BrandConfig>(DEFAULT_BRAND_CONFIG);
@@ -1595,6 +1907,8 @@ export default function Admin() {
               onEditDone={editFlower ? handleEditDone : undefined}
             />
           )}
+          {activeSection === "testimonials" && <TestimonialsSection />}
+          {activeSection === "hero-slides" && <HeroSlidesSection />}
           {activeSection === "config" && <BrandConfigSection />}
         </main>
       </div>

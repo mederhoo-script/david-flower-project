@@ -1,7 +1,25 @@
 /* ── Constants ──────────────────────────────────────────────────────────── */
-const WA_NUMBER  = '2348034295030';
-const WA_ENQUIRY = encodeURIComponent("Hello David Flower Project! 🌸 I'd like to place a flower order.");
-const WA_FAB_URL = `https://wa.me/${WA_NUMBER}?text=${WA_ENQUIRY}`;
+const DEFAULT_WA_GREETING = "Hello David Flower Project! 🌸 I'd like to place a flower order.";
+let WA_NUMBER  = '2348034295030';
+let WA_ENQUIRY = encodeURIComponent(DEFAULT_WA_GREETING);
+let WA_FAB_URL = `https://wa.me/${WA_NUMBER}?text=${WA_ENQUIRY}`;
+
+/**
+ * Update WhatsApp contact details from the DB brand config.
+ * Call this before rendering any WA-dependent content.
+ */
+function updateWAConfig(number, greeting) {
+  if (number) WA_NUMBER = number;
+  const msg = greeting || DEFAULT_WA_GREETING;
+  WA_ENQUIRY = encodeURIComponent(msg);
+  WA_FAB_URL = `https://wa.me/${WA_NUMBER}?text=${WA_ENQUIRY}`;
+  /* Update any WhatsApp FAB / footer links already in the DOM */
+  document.querySelectorAll('[data-wa-fab]').forEach(el => { el.href = WA_FAB_URL; });
+  document.querySelectorAll('[data-wa-link]').forEach(el => {
+    const encoded = encodeURIComponent(el.dataset.waText || msg);
+    el.href = `https://wa.me/${WA_NUMBER}?text=${encoded}`;
+  });
+}
 
 /* ── Tailwind custom colours used via JS-generated HTML ─────────────────── */
 const BADGE_CLS = {
@@ -64,11 +82,13 @@ const HERO_SLIDES = [
   { bg: 'images/regal/regal-chrysanthemums.jpg',             tag: 'Spring Collection', title: 'First Blooms of Spring',    subtitle: 'Elegant seasonal flowers heralding the arrival of a new season',    cta: 'collections.html' },
   { bg: 'images/regal/regal-popular-bundled.jpg',            tag: 'Seasonal Picks',    title: 'Rich & Vibrant',            subtitle: 'Bold colours and warm arrangements to brighten any space',           cta: 'collections.html' },
 ];
-const N = HERO_SLIDES.length;
 
-function initHero() {
+function initHero(slides) {
   const root = document.getElementById('hero');
   if (!root) return;
+
+  const SLIDES = (Array.isArray(slides) && slides.length > 0) ? slides : HERO_SLIDES;
+  const N = SLIDES.length;
 
   let cur = 0, autoTimer = null, dragging = false, tx0 = 0, ty0 = 0, dragPx = 0;
 
@@ -76,7 +96,7 @@ function initHero() {
   root.innerHTML = `
     <div id="h-wrap" class="relative w-full h-full overflow-hidden" style="touch-action:pan-y">
       <div id="h-track" class="flex h-full will-change-transform" style="width:${N*100}%;transform:translateX(0);transition:transform .5s cubic-bezier(.25,.46,.45,.94)">
-        ${HERO_SLIDES.map((s,i)=>`
+        ${SLIDES.map((s,i)=>`
           <div class="relative h-full flex-shrink-0" style="width:${100/N}%">
             <img src="${s.bg}" alt="${s.title}" class="w-full h-full object-cover object-center no-drag" ${i===0?'fetchpriority="high"':'loading="lazy"'}>
             <div class="absolute inset-0 bg-black/50"></div>
@@ -107,7 +127,7 @@ function initHero() {
     track.style.transition = 'transform .5s cubic-bezier(.25,.46,.45,.94)';
     track.style.transform  = `translateX(${-(cur * 100/N)}%)`;
     /* content */
-    const s = HERO_SLIDES[cur];
+    const s = SLIDES[cur];
     content.innerHTML = `
       <p class="font-inter text-[11px] tracking-[.45em] uppercase text-[#00cc00] mb-5 animate-hero-fade-up">${s.tag}</p>
       <h1 class="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-4 animate-hero-fade-up" style="animation-delay:.08s">${s.title}</h1>
@@ -117,7 +137,7 @@ function initHero() {
         <a href="collections.html" class="font-inter text-[11px] tracking-[.3em] uppercase border border-white/70 text-white px-8 py-3.5 hover:bg-white/10 transition-colors">Discover More</a>
       </div>`;
     /* dots */
-    dots.innerHTML = HERO_SLIDES.map((_,i)=>`
+    dots.innerHTML = SLIDES.map((_,i)=>`
       <button onclick="heroGoTo(${i})" aria-label="Slide ${i+1}" class="transition-all duration-300 ${i===cur?'w-7 h-[3px] rounded-none bg-[#00cc00]':'w-[6px] h-[6px] rounded-full bg-white/50 hover:bg-white/80'}"></button>`).join('');
     /* progress */
     prog.classList.remove('animate-hero-progress');
@@ -159,11 +179,13 @@ function initHero() {
 }
 
 /* ── Trending Auto-Scroll Carousel ──────────────────────────────────────── */
-function initTrending(containerId) {
+function initTrending(containerId, designs) {
   const wrap = document.getElementById(containerId);
-  if (!wrap || typeof DESIGNS === 'undefined') return;
+  if (!wrap) return;
+  const data = (Array.isArray(designs) && designs.length > 0) ? designs : (typeof DESIGNS !== 'undefined' ? DESIGNS : []);
+  if (!data.length) return;
 
-  const all = [...DESIGNS, ...DESIGNS];
+  const all = [...data, ...data];
   const track = document.createElement('div');
   track.className = 'flex will-change-transform';
   track.style.transform = 'translateX(0)';
@@ -249,10 +271,11 @@ function renderFlowerGrid(containerId, designs, qv = true) {
 }
 
 /* ── Regal Gallery ───────────────────────────────────────────────────────── */
-function renderRegalGallery(containerId) {
+function renderRegalGallery(containerId, designs) {
   const el = document.getElementById(containerId);
-  if (!el || typeof DESIGNS === 'undefined') return;
-  const regal = DESIGNS.filter(d => d.id.startsWith('regal'));
+  const data = (Array.isArray(designs) && designs.length > 0) ? designs : (typeof DESIGNS !== 'undefined' ? DESIGNS : []);
+  if (!el || !data.length) return;
+  const regal = data.filter(d => d.id.startsWith('regal'));
   el.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
   el.innerHTML = regal.map((d,i) => `
     <a href="collections.html" class="group block">
@@ -264,11 +287,12 @@ function renderRegalGallery(containerId) {
 }
 
 /* ── Collections Season Grid ─────────────────────────────────────────────── */
-function renderSeasonGrid(containerId) {
+function renderSeasonGrid(containerId, collections) {
   const el = document.getElementById(containerId);
-  if (!el || typeof COLLECTIONS === 'undefined') return;
+  const data = (Array.isArray(collections) && collections.length > 0) ? collections : (typeof COLLECTIONS !== 'undefined' ? COLLECTIONS : []);
+  if (!el || !data.length) return;
   el.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8';
-  el.innerHTML = COLLECTIONS.map(c => `
+  el.innerHTML = data.map(c => `
     <div class="group cursor-pointer">
       <a href="collections.html">
         <div class="relative aspect-[3/4] overflow-hidden bg-[#E8F0E8] mb-4">
@@ -281,11 +305,12 @@ function renderSeasonGrid(containerId) {
 }
 
 /* ── Testimonials ────────────────────────────────────────────────────────── */
-function renderTestimonials(containerId) {
+function renderTestimonials(containerId, testimonials) {
   const el = document.getElementById(containerId);
-  if (!el || typeof TESTIMONIALS === 'undefined') return;
+  const data = (Array.isArray(testimonials) && testimonials.length > 0) ? testimonials : (typeof TESTIMONIALS !== 'undefined' ? TESTIMONIALS : []);
+  if (!el || !data.length) return;
   el.className = 'grid grid-cols-1 md:grid-cols-3 gap-6';
-  el.innerHTML = TESTIMONIALS.map(t => `
+  el.innerHTML = data.map(t => `
     <div class="bg-[#0A1A0A]/5 border border-[#2D6A2D]/20 p-8">
       <div class="text-[#00cc00] text-4xl font-playfair mb-4 leading-none">&ldquo;</div>
       <p class="font-playfair italic text-base text-[#1A2E1A]/90 leading-relaxed mb-6">${t.quote}</p>
