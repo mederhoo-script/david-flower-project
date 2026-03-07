@@ -400,12 +400,14 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
               {filtered.map((f) => {
                 const isHidden = hiddenIds.includes(f.id);
                 const isOverridden = fsIds.has(f.id);
+                // For display, use Firestore data when overridden — it's the authoritative version
+                const displayF = isOverridden ? (fsFlowers.find((ff) => ff.id === f.id) ?? f) : f;
                 return (
                   <TableRow key={f.id} className={isHidden ? "opacity-50" : ""}>
                     <TableCell>
                       <img
-                        src={f.image}
-                        alt={f.title}
+                        src={displayF.image}
+                        alt={displayF.title}
                         className="w-10 h-10 object-cover rounded-md bg-muted"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = "none";
@@ -413,9 +415,9 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       />
                     </TableCell>
                     <TableCell>
-                      <p className="font-inter text-sm font-medium">{f.title}</p>
+                      <p className="font-inter text-sm font-medium">{displayF.title}</p>
                       <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1">
-                        {f.description}
+                        {displayF.description}
                       </p>
                       {isOverridden && (
                         <span className="inline-block mt-0.5 font-inter text-[10px] text-primary bg-primary/10 px-1.5 py-px rounded">
@@ -425,30 +427,30 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">
                       <span className="font-inter text-xs text-muted-foreground">
-                        {f.category}
+                        {displayF.category}
                       </span>
                     </TableCell>
                     <TableCell className="hidden md:table-cell font-inter text-sm">
-                      {f.stemPrice} / {f.bunchPrice}
+                      {displayF.stemPrice} / {displayF.bunchPrice}
                     </TableCell>
                     <TableCell>
                       <div className="flex flex-wrap gap-1">
-                        {f.badge && (
+                        {displayF.badge && (
                           <Badge variant="secondary" className="font-inter text-xs">
-                            {f.badge}
+                            {displayF.badge}
                           </Badge>
                         )}
-                        {f.featured && (
+                        {displayF.featured && (
                           <Badge variant="outline" className="font-inter text-xs">
                             Featured
                           </Badge>
                         )}
-                        {f.isNew && (
+                        {displayF.isNew && (
                           <Badge className="font-inter text-xs bg-emerald-500 text-white border-0">
                             New
                           </Badge>
                         )}
-                        {f.isTrending && (
+                        {displayF.isTrending && (
                           <Badge className="font-inter text-xs bg-amber-500 text-white border-0">
                             Trending
                           </Badge>
@@ -469,7 +471,7 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                     </TableCell>
                     <TableCell className="text-right">
                       <button
-                        onClick={() => onEdit(f)}
+                        onClick={() => onEdit(displayF)}
                         title="Edit this flower"
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
@@ -820,7 +822,7 @@ function ImageSlot({
 type ImageView = "front" | "left" | "right" | "back";
 
 // ── Add / Edit Flower section ─────────────────────────────────────────────────
-const BADGE_OPTIONS = ["New", "Popular", "Trending"] as const;
+const BADGE_OPTIONS = ["New", "Popular", "Trending", "Fragrant", "Premium"] as const;
 const CATEGORY_OPTIONS = flowerCategories.filter(
   (c) => c !== "All"
 ) as Exclude<FlowerCategory, "All">[];
@@ -842,7 +844,7 @@ function makeEmptyForm() {
     stemPriceValue: "",
     bunchPriceValue: "",
     category: CATEGORY_OPTIONS[0],
-    badge: "" as "" | "New" | "Popular" | "Trending",
+    badge: "" as "" | "New" | "Popular" | "Trending" | "Fragrant" | "Premium",
     colors: [] as string[],
     seasons: [] as FlowerSeason[],
     featured: false,
@@ -968,7 +970,7 @@ function AddFlowerSection({
         stemPriceValue: form.stemPriceValue ? Number(form.stemPriceValue) : undefined,
         bunchPriceValue: form.bunchPriceValue ? Number(form.bunchPriceValue) : undefined,
         category: form.category,
-        badge: (form.badge as "New" | "Popular" | "Trending") || undefined,
+        badge: (form.badge as "New" | "Popular" | "Trending" | "Fragrant" | "Premium") || undefined,
         image: resolvedFrontUrl,
         images: {
           front: resolvedFrontUrl,

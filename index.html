@@ -319,6 +319,19 @@
       } catch (e) {
         console.warn('[Catalog] Firebase unavailable:', e.message);
       }
+
+      // Filter out products hidden via the admin panel
+      try {
+        const hiddenSnap = await getDoc(doc(db, 'config', 'hiddenProducts'));
+        if (hiddenSnap.exists()) {
+          const hiddenIds = hiddenSnap.data().hiddenIds || [];
+          if (hiddenIds.length > 0) {
+            allDesigns = allDesigns.filter(d => !hiddenIds.includes(d.id));
+          }
+        }
+      } catch (e) {
+        console.warn('[Catalog] Hidden products config unavailable:', e.message);
+      }
     }
 
     initTrending('trending-wrap', allDesigns);
