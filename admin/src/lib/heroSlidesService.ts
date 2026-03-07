@@ -17,6 +17,8 @@ import {
   getDocs,
   deleteDoc,
   doc,
+  getDoc,
+  setDoc,
   query,
   orderBy,
   serverTimestamp,
@@ -26,6 +28,7 @@ import {
   QueryDocumentSnapshot,
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import { useEffect, useState, useCallback } from "react";
 
 export const HERO_SLIDES_COLLECTION = "heroSlides";
 
@@ -128,4 +131,61 @@ export async function uploadHeroSlideImage(
   );
 
   return Promise.race([uploadPromise, timeoutPromise]);
+}
+
+/**
+ * Firestore service for hiding/restoring static (built-in) hero slides.
+ *
+ * The set of hidden slide indexes is persisted as:
+ *   collection: "config"
+ *   document:   "hiddenHeroSlides"
+ *   field:      hiddenIndexes: number[]
+ *
+ * Indexes correspond to the positions in the HERO_SLIDES array in main.js.
+ */
+
+const HIDDEN_HERO_SLIDES_REF = doc(db, "config", "hiddenHeroSlides");
+
+export async function getHiddenHeroSlideIndexes(): Promise<number[]> {
+  const snap = await getDoc(HIDDEN_HERO_SLIDES_REF);
+  if (!snap.exists()) return [];
+  const data = snap.data() as { hiddenIndexes?: number[] };
+  return data.hiddenIndexes ?? [];
+}
+
+async function saveHiddenSlideIndexes(indexes: number[]): Promise<void> {
+  await setDoc(HIDDEN_HERO_SLIDES_REF, { hiddenIndexes: indexes });
+}
+
+export async function hideStaticHeroSlide(index: number): Promise<void> {
+  const current = await getHiddenHeroSlideIndexes();
+  if (current.includes(index)) return;
+  await saveHiddenSlideIndexes([...current, index]);
+}
+
+export async function restoreStaticHeroSlide(index: number): Promise<void> {
+  const current = await getHiddenHeroSlideIndexes();
+  await saveHiddenSlideIndexes(current.filter((i) => i !== index));
+}
+
+export function useHiddenHeroSlideIndexes() {
+  const [hiddenIndexes, setHiddenIndexes] = useState<number[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const refetch = useCallback(async () => {
+    setLoading(true);
+    try {
+      setHiddenIndexes(await getHiddenHeroSlideIndexes());
+    } catch {
+      setHiddenIndexes([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  return { hiddenIndexes, loading, refetch };
 }
