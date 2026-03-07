@@ -1,9 +1,15 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/collections", "destination": "/collections.html" },
-    { "source": "/process",     "destination": "/process.html" },
-    { "source": "/contact",     "destination": "/contact.html" },
-    { "source": "/about",       "destination": "/about.html" }
+    { "source": "/admin/login",    "destination": "/admin/index.html" },
+    { "source": "/admin/register", "destination": "/admin/index.html" },
+    { "source": "/admin/(.*)",     "destination": "/admin/index.html" },
+    { "source": "/admin",          "destination": "/admin/index.html" },
+    { "source": "/collections",    "destination": "/collections.html" },
+    { "source": "/process",        "destination": "/process.html" },
+    { "source": "/contact",        "destination": "/contact.html" },
+    { "source": "/about",          "destination": "/about.html" }
   ]
 }

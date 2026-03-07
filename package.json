@@ -1,0 +1,10 @@
+{
+  "name": "flower-catalogue",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "npm run build:admin && npm run copy:static",
+    "build:admin": "cd admin && npm install && npm run build",
+    "copy:static": "node scripts/copy-static.js"
+  }
+}
