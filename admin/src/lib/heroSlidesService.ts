@@ -78,3 +78,54 @@ export async function updateHeroSlide(
 export async function deleteHeroSlide(id: string): Promise<void> {
   await deleteDoc(doc(db, HERO_SLIDES_COLLECTION, id));
 }
+
+/**
+ * Upload a hero slide background image to Cloudinary using an unsigned upload preset.
+ */
+export async function uploadHeroSlideImage(
+  file: File,
+  timeoutMs = 30_000
+): Promise<string> {
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
+  if (!cloudName || !uploadPreset) {
+    throw new Error(
+      "Cloudinary is not configured. Set VITE_CLOUDINARY_CLOUD_NAME and " +
+        "VITE_CLOUDINARY_UPLOAD_PRESET in your .env file (see example.env)."
+    );
+  }
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
+  formData.append("folder", "hero-slides");
+
+  const uploadUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+
+  const uploadPromise = fetch(uploadUrl, {
+    method: "POST",
+    body: formData,
+  }).then(async (res) => {
+    if (!res.ok) {
+      const text = await res.text().catch(() => res.statusText);
+      throw new Error(`Cloudinary upload failed (${res.status}): ${text}`);
+    }
+    const json = (await res.json()) as { secure_url?: string };
+    if (!json.secure_url) {
+      throw new Error(
+        "Cloudinary upload succeeded but the response did not contain a secure_url."
+      );
+    }
+    return json.secure_url;
+  });
+
+  const timeoutPromise = new Promise<never>((_, reject) =>
+    setTimeout(
+      () => reject(new Error(`Image upload timed out after ${timeoutMs / 1000}s.`)),
+      timeoutMs
+    )
+  );
+
+  return Promise.race([uploadPromise, timeoutPromise]);
+}

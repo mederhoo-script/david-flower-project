@@ -21,6 +21,7 @@ import {
   addHeroSlide,
   updateHeroSlide,
   deleteHeroSlide,
+  uploadHeroSlideImage,
   type HeroSlide,
 } from "@/lib/heroSlidesService";
 import {
@@ -477,13 +478,13 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                     <TableCell>
                       <button
                         onClick={() => toggleHide(displayF)}
-                        title={isHidden ? "Restore to storefront" : "Hide from storefront"}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        className={`font-inter text-xs px-2 py-0.5 rounded border transition-colors ${
+                          isHidden
+                            ? "border-border text-muted-foreground hover:border-primary hover:text-primary"
+                            : "border-border text-muted-foreground hover:border-destructive hover:text-destructive"
+                        }`}
                       >
-                        <Icon
-                          path={isHidden ? ICONS.eyeOff : ICONS.eye}
-                          className="w-4 h-4"
-                        />
+                        {isHidden ? "Show" : "Hide"}
                       </button>
                     </TableCell>
                     <TableCell className="text-right">
@@ -536,12 +537,15 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                   <TableHead className="hidden sm:table-cell font-inter">Category</TableHead>
                   <TableHead className="hidden md:table-cell font-inter">Stem / Bunch</TableHead>
                   <TableHead className="hidden sm:table-cell font-inter">Badges</TableHead>
+                  <TableHead className="font-inter">Status</TableHead>
                   <TableHead className="text-right font-inter">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {fsFlowers.map((f) => (
-                  <TableRow key={f.id}>
+                {fsFlowers.map((f) => {
+                  const isFsHidden = hiddenIds.includes(f.id);
+                  return (
+                  <TableRow key={f.id} className={isFsHidden ? "opacity-50" : ""}>
                     <TableCell>
                       <img
                         src={f.image}
@@ -593,6 +597,18 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                         )}
                       </div>
                     </TableCell>
+                    <TableCell>
+                      <button
+                        onClick={() => toggleHide(f)}
+                        className={`font-inter text-xs px-2 py-0.5 rounded border transition-colors ${
+                          isFsHidden
+                            ? "border-border text-muted-foreground hover:border-primary hover:text-primary"
+                            : "border-border text-muted-foreground hover:border-destructive hover:text-destructive"
+                        }`}
+                      >
+                        {isFsHidden ? "Show" : "Hide"}
+                      </button>
+                    </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
                         <button
@@ -624,7 +640,8 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       </div>
                     </TableCell>
                   </TableRow>
-                ))}
+                  );
+                })}
               </TableBody>
             </Table>
           )}
@@ -1507,15 +1524,20 @@ function TestimonialsSection() {
 }
 
 // ── Hero Slides section ───────────────────────────────────────────────────────
+const EMPTY_BG_SLOT: ImageSlotState = { mode: "url", url: "", file: null };
+
 function HeroSlidesSection() {
   const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [bgUploading, setBgUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [editItem, setEditItem] = useState<HeroSlide | null>(null);
 
-  const emptyForm = () => ({ bg: "", tag: "", title: "", subtitle: "", cta: "collections.html", order: slides.length });
+  const [bgSlot, setBgSlot] = useState<ImageSlotState>({ ...EMPTY_BG_SLOT });
+
+  const emptyForm = () => ({ tag: "", title: "", subtitle: "", cta: "collections.html", order: slides.length });
   const [form, setForm] = useState(emptyForm);
 
   const fetchAll = useCallback(async () => {
@@ -1533,17 +1555,38 @@ function HeroSlidesSection() {
 
   function startEdit(s: HeroSlide) {
     setEditItem(s);
-    setForm({ bg: s.bg, tag: s.tag, title: s.title, subtitle: s.subtitle, cta: s.cta, order: s.order });
+    setBgSlot({ mode: "url", url: s.bg, file: null });
+    setForm({ tag: s.tag, title: s.title, subtitle: s.subtitle, cta: s.cta, order: s.order });
     setError(null); setSuccess(false);
   }
 
-  function cancelEdit() { setEditItem(null); setForm(emptyForm()); }
+  function cancelEdit() {
+    setEditItem(null);
+    setBgSlot({ ...EMPTY_BG_SLOT });
+    setForm(emptyForm());
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true); setError(null); setSuccess(false);
     try {
-      const data = { bg: form.bg.trim(), tag: form.tag.trim(), title: form.title.trim(), subtitle: form.subtitle.trim(), cta: form.cta.trim(), order: Number(form.order) };
+      let bgUrl = "";
+      if (bgSlot.mode === "url") {
+        bgUrl = bgSlot.url.trim();
+      } else if (bgSlot.file) {
+        setBgUploading(true);
+        try {
+          bgUrl = await uploadHeroSlideImage(bgSlot.file);
+        } finally {
+          setBgUploading(false);
+        }
+      }
+      if (!bgUrl) {
+        setError("Background image is required.");
+        setSaving(false);
+        return;
+      }
+      const data = { bg: bgUrl, tag: form.tag.trim(), title: form.title.trim(), subtitle: form.subtitle.trim(), cta: form.cta.trim(), order: Number(form.order) };
       if (editItem) { await updateHeroSlide(editItem.id, data); } else { await addHeroSlide(data); }
       setSuccess(true);
       cancelEdit();
@@ -1575,10 +1618,18 @@ function HeroSlidesSection() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label className="font-inter text-sm mb-1.5 block">Background Image URL <span className="text-destructive">*</span></Label>
-              <Input required value={form.bg} onChange={e => setForm(p => ({...p, bg: e.target.value}))} placeholder="images/regal/regal-roses.jpg" className="font-inter" />
-            </div>
+            <ImageSlot
+              id="hs-bg"
+              label="Background Image"
+              required
+              mode={bgSlot.mode}
+              url={bgSlot.url}
+              file={bgSlot.file}
+              uploading={bgUploading}
+              onModeChange={(m) => setBgSlot((prev) => ({ ...prev, mode: m, file: null }))}
+              onUrlChange={(u) => setBgSlot((prev) => ({ ...prev, url: u }))}
+              onFileChange={(f) => setBgSlot((prev) => ({ ...prev, file: f }))}
+            />
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Label className="font-inter text-sm mb-1.5 block">Tag Label <span className="text-destructive">*</span></Label>
@@ -1602,8 +1653,8 @@ function HeroSlidesSection() {
               <Input type="number" value={form.order} onChange={e => setForm(p => ({...p, order: Number(e.target.value)}))} className="font-inter w-24" />
             </div>
             <div className="flex items-center gap-3">
-              <Button type="submit" disabled={saving} className="font-inter tracking-[0.05em] uppercase text-xs">
-                {saving ? "Saving…" : editItem ? "Save Changes" : "Add Slide"}
+              <Button type="submit" disabled={saving || bgUploading} className="font-inter tracking-[0.05em] uppercase text-xs">
+                {bgUploading ? "Uploading image…" : saving ? "Saving…" : editItem ? "Save Changes" : "Add Slide"}
               </Button>
               {editItem && <Button type="button" variant="outline" onClick={cancelEdit} className="font-inter text-xs">Cancel</Button>}
             </div>
