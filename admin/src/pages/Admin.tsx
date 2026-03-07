@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { flowers, flowerCategories, FlowerProduct, FlowerCategory, FlowerSeason } from "@/data/products";
-import { addProduct, getProducts, deleteProduct, updateProduct, uploadProductImage } from "@/lib/productsService";
+import { addProduct, getProducts, deleteProduct, setProduct, uploadProductImage } from "@/lib/productsService";
 import {
   getBrandConfig,
   saveBrandConfig,
@@ -289,6 +289,9 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<FlowerCategory>("All");
 
+  // Set of static flower IDs that have already been saved to Firestore (overridden)
+  const fsIds = useMemo(() => new Set(fsFlowers.map((f) => f.id)), [fsFlowers]);
+
   const categoryOptions = useMemo(() => {
     const set = new Set(flowers.map((f) => f.category));
     return ["All", ...Array.from(set).sort()] as FlowerCategory[];
@@ -336,7 +339,9 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
       <div>
         <h2 className="font-playfair text-3xl font-semibold mb-1">Flowers</h2>
         <p className="text-sm text-muted-foreground font-inter">
-          Manage your static flower catalogue and Firestore-saved flowers.
+          Manage your flower catalogue. Click <strong>Edit</strong> on any flower — static or
+          Firestore — to update its info, images, and pricing. Edited static flowers are saved to
+          Firestore and take priority on the storefront.
         </p>
       </div>
 
@@ -394,6 +399,7 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
             <TableBody>
               {filtered.map((f) => {
                 const isHidden = hiddenIds.includes(f.id);
+                const isOverridden = fsIds.has(f.id);
                 return (
                   <TableRow key={f.id} className={isHidden ? "opacity-50" : ""}>
                     <TableCell>
@@ -411,6 +417,11 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       <p className="font-inter text-xs text-muted-foreground mt-0.5 line-clamp-1">
                         {f.description}
                       </p>
+                      {isOverridden && (
+                        <span className="inline-block mt-0.5 font-inter text-[10px] text-primary bg-primary/10 px-1.5 py-px rounded">
+                          DB override active
+                        </span>
+                      )}
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">
                       <span className="font-inter text-xs text-muted-foreground">
@@ -457,10 +468,13 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                       </button>
                     </TableCell>
                     <TableCell className="text-right">
-                      {/* Static flowers are read-only in the catalogue */}
-                      <span className="font-inter text-xs text-muted-foreground italic">
-                        static
-                      </span>
+                      <button
+                        onClick={() => onEdit(f)}
+                        title="Edit this flower"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <Icon path={ICONS.edit} className="w-4 h-4" />
+                      </button>
                     </TableCell>
                   </TableRow>
                 );
@@ -861,6 +875,13 @@ function AddFlowerSection({
   const [slots, setSlots] = useState<Record<ImageView, ImageSlotState>>(makeEmptySlots);
   const [uploadingSlot, setUploadingSlot] = useState<ImageView | null>(null);
 
+  // True when editing a flower that originated from the static products.ts list.
+  // Computed once per editFlower change, not on every render.
+  const isStaticFlower = useMemo(
+    () => !!editFlower && flowers.some((f) => f.id === editFlower.id),
+    [editFlower]
+  );
+
   // Populate form when editing
   useEffect(() => {
     if (editFlower) {
@@ -959,7 +980,11 @@ function AddFlowerSection({
       };
 
       if (editFlower) {
-        await updateProduct(editFlower.id, data);
+        // Use setProduct (upsert by ID) so that:
+        //  • static flowers (no existing Firestore doc) are created with their static ID
+        //  • previously-promoted flowers are fully replaced
+        // The storefront's DB-first logic then serves the Firestore version automatically.
+        await setProduct(editFlower.id, data);
       } else {
         await addProduct(data);
       }
@@ -994,7 +1019,9 @@ function AddFlowerSection({
         </h2>
         <p className="text-sm text-muted-foreground font-inter">
           {isEditing
-            ? "Update this flower in Firestore."
+            ? isStaticFlower
+              ? "Editing a static flower saves an override to Firestore. The storefront will use the Firestore version instead of the static one."
+              : "Update this flower in Firestore."
             : "Save a new flower to Firestore. It will appear alongside the static catalogue."}
         </p>
       </div>
