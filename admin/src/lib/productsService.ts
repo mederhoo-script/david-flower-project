@@ -24,6 +24,16 @@ import type { FlowerProduct } from "@/data/products";
 
 export const PRODUCTS_COLLECTION = "flowers";
 
+/**
+ * Remove keys whose value is `undefined` before writing to Firestore.
+ * Firestore does not support undefined field values and throws if any are present.
+ */
+function stripUndefined(obj: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([, v]) => v !== undefined)
+  );
+}
+
 export interface FirestoreFlowerDoc extends Omit<FlowerProduct, "id"> {
   createdAt?: Timestamp;
 }
@@ -36,7 +46,7 @@ function toProduct(snap: QueryDocumentSnapshot<DocumentData>): FlowerProduct {
 
 export async function addProduct(data: Omit<FlowerProduct, "id">): Promise<string> {
   const ref = await addDoc(collection(db, PRODUCTS_COLLECTION), {
-    ...data,
+    ...stripUndefined(data as Record<string, unknown>),
     createdAt: serverTimestamp(),
   });
   return ref.id;
@@ -56,7 +66,9 @@ export async function deleteProduct(id: string): Promise<void> {
 }
 
 export async function updateProduct(id: string, data: Omit<FlowerProduct, "id">): Promise<void> {
-  await updateDoc(doc(db, PRODUCTS_COLLECTION, id), { ...data });
+  await updateDoc(doc(db, PRODUCTS_COLLECTION, id), {
+    ...stripUndefined(data as Record<string, unknown>),
+  });
 }
 
 /**
