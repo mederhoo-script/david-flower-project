@@ -11,9 +11,11 @@ import {
   getDocs,
   deleteDoc,
   doc,
+  getDoc,
   query,
   orderBy,
   serverTimestamp,
+  setDoc,
   updateDoc,
   Timestamp,
   DocumentData,
@@ -69,6 +71,24 @@ export async function updateProduct(id: string, data: Omit<FlowerProduct, "id">)
   await updateDoc(doc(db, PRODUCTS_COLLECTION, id), {
     ...stripUndefined(data as Record<string, unknown>),
   });
+}
+
+/**
+ * Upsert a product document with a specific ID.
+ * • If the document doesn't exist yet (first edit of a static flower), it is
+ *   created with a server-side `createdAt` timestamp.
+ * • If the document already exists, only the data fields are updated so that
+ *   the original `createdAt` is preserved.
+ */
+export async function setProduct(id: string, data: Omit<FlowerProduct, "id">): Promise<void> {
+  const docRef = doc(db, PRODUCTS_COLLECTION, id);
+  const snap = await getDoc(docRef);
+  const payload = stripUndefined(data as Record<string, unknown>);
+  if (snap.exists()) {
+    await updateDoc(docRef, payload);
+  } else {
+    await setDoc(docRef, { ...payload, createdAt: serverTimestamp() });
+  }
 }
 
 /**
