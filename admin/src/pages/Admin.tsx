@@ -378,12 +378,29 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
 
       {/* Static flowers table */}
       <Card className="border border-border">
-        <CardHeader className="pb-3">
+        <CardHeader className="pb-3 flex flex-row items-center justify-between">
           <CardTitle className="font-playfair text-base font-semibold">
             Static Catalogue ({filtered.length})
+            {fsLoading && (
+              <span className="ml-2 font-inter text-xs text-muted-foreground font-normal">
+                Loading DB data…
+              </span>
+            )}
           </CardTitle>
+          <Button variant="outline" size="sm" onClick={refetch} className="font-inter text-xs">
+            Refresh
+          </Button>
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent className="p-0 relative">
+          {fsLoading && (
+            <div
+              className="absolute inset-0 z-10 bg-background/60 flex items-center justify-center rounded-b-lg"
+              aria-label="Loading catalogue data"
+              role="status"
+            >
+              <div className="h-5 w-5 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+            </div>
+          )}
           <Table>
             <TableHeader>
               <TableRow>
@@ -459,7 +476,7 @@ function FlowersSection({ onEdit }: { onEdit: (f: FlowerProduct) => void }) {
                     </TableCell>
                     <TableCell>
                       <button
-                        onClick={() => toggleHide(f)}
+                        onClick={() => toggleHide(displayF)}
                         title={isHidden ? "Restore to storefront" : "Hide from storefront"}
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
